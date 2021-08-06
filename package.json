@@ -1,7 +1,7 @@
 {
-  "name": "kompas-www-submodules",
+  "name": "@kompas/submodules",
   "version": "0.0.1",
-  "description": "",
+  "description": "Komponen-komponen pakai-ulang lintas www & preview",
   "main": "dist/kompas-www-submodules.ssr.js",
   "browser": "dist/kompas-www-submodules.esm.js",
   "module": "dist/kompas-www-submodules.esm.js",
