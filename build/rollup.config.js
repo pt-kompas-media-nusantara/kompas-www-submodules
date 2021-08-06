@@ -45,6 +45,11 @@ const baseConfig = {
       template: {
         isProduction: true,
       },
+      style: {
+        postcssModulesOptions: {
+          generateScopedName: 'ksm-[hash:base64:3]'
+        }
+      }
     },
     postVue: [
       resolve({
