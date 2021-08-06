@@ -1,7 +1,7 @@
 import _Vue, { PluginFunction } from 'vue';
 
 // Import vue components
-import * as components from '@/lib-components/index';
+import * as components from '@/components/index';
 
 // install function executed by Vue.use()
 const install: PluginFunction<any> = function installKompasWwwSubmodules(Vue: typeof _Vue) {
@@ -15,4 +15,4 @@ export default install;
 
 // To allow individual component use, export components
 // each can be registered via Vue.component()
-export * from '@/lib-components/index';
+export * from '@/components/index';
