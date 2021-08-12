@@ -18,7 +18,7 @@ export default /*#__PURE__*/Vue.extend({
   },
   render (h): VNode {
     return h(
-      'p',
+      'blockquote',
       {
         class: this.classes
       },
@@ -28,8 +28,15 @@ export default /*#__PURE__*/Vue.extend({
 })
 </script>
 <style module lang="postcss" scoped>
+	blockquote {
+		@apply bg-no-repeat mb-8 pt-12 mx-auto max-w-md;
+     /* asset icon 'quote' masih dummy dari luar */
+		background-image: url('https://image.flaticon.com/icons/png/128/37/37406.png');
+		background-position: top center;
+		background-size: 3rem;
+	}
   .core {
-    @apply font-system mx-auto max-w-md text-grey-600 my-4 px-4;
+    @apply font-system italic text-center text-center text-grey-600 px-4;
   }
 
   @screen lg {
@@ -39,15 +46,17 @@ export default /*#__PURE__*/Vue.extend({
   }
 
   .base {
-    @apply text-lg;
+    @apply text-2xl leading-normal;
   }
 
   .medium {
-    @apply text-xl;
+    font-size: 26px;
+    line-height: 38px;
   }
 
   .large {
-    @apply text-2xl;
+    font-size: 28px;
+    line-height: 40px;
   }
 
 </style>
