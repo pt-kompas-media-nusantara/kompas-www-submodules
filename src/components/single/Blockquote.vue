@@ -30,8 +30,7 @@ export default /*#__PURE__*/Vue.extend({
 <style module lang="postcss" scoped>
 	blockquote {
 		@apply bg-no-repeat mb-8 pt-12 mx-auto max-w-md;
-     /* asset icon 'quote' masih dummy dari luar */
-		background-image: url('https://image.flaticon.com/icons/png/128/37/37406.png');
+		background-image: url('../../assets/img/quotes.png');
 		background-position: top center;
 		background-size: 3rem;
 	}
