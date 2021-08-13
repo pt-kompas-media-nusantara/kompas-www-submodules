@@ -4,11 +4,11 @@ export default /*#__PURE__*/Vue.extend({
   props: {
     fontSize: {
       type: String,
-      default: '',
+      default: ''
     }
   },
   computed: {
-    classes() {
+    classes(): string[] {
       let res= [
         this.$style.core
       ]
