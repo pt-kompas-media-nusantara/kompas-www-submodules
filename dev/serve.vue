@@ -33,6 +33,12 @@ export default Vue.extend({
             <ksm-single-paragraph font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
             <ksm-single-blockquote font-size="base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
             <ksm-single-blockquote font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
+            <div style="margin: auto; max-width: 1024px;">
+              <div style="height: 100px; background: #ddd"></div>
+              <ksm-single-caption font-size="base">(caption base) Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi quia sequi commodi qui.</ksm-single-caption>
+              <ksm-single-caption font-size="medium">(caption medium) Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui.</ksm-single-caption>
+              <ksm-single-caption font-size="large">(caption large) Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui.</ksm-single-caption>
+            </div>
           </div>
         </article>
       </div>
