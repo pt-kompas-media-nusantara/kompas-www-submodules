@@ -1,15 +1,23 @@
 <script lang="ts">
 import Vue, { VNode } from 'vue'
+
+interface ComponentClasses extends Array<string> {
+  [index: number]: string
+}
+
 export default /*#__PURE__*/Vue.extend({
   props: {
     fontSize: {
       type: String,
-      default: ''
+      default: 'base',
+      validator (size: string) {
+        return ['base', 'medium', 'large'].includes(size)
+      }
     }
   },
   computed: {
-    classes(): string[] {
-      let res= [
+    classes(): ComponentClasses {
+      let res: ComponentClasses = [
         this.$style.core
       ]
       res.push(this.$style[this.fontSize])
@@ -35,7 +43,7 @@ export default /*#__PURE__*/Vue.extend({
 		background-size: 3rem;
 	}
   .core {
-    @apply font-system italic text-center text-center text-grey-600 px-4;
+    @apply font-system italic text-center text-grey-600 px-4;
   }
 
   @screen lg {
@@ -49,13 +57,13 @@ export default /*#__PURE__*/Vue.extend({
   }
 
   .medium {
-    font-size: 26px;
-    line-height: 38px;
+    font-size: 1.625rem;
+    line-height: 2.375rem; /* 38px; */
   }
 
   .large {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 1.750rem;
+    line-height: 2.5rem; /* 40px; */
   }
 
 </style>
