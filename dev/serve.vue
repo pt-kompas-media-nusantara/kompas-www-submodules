@@ -17,14 +17,14 @@ export default Vue.extend({
     <div class="container">
       <div class="mx-auto max-w-2xl">
         <article>
-          <ksm-single-title>Judul &quot;Lorem&quot; Ipsum &amp; Kolor Sit Amet</ksm-single-title>
+          <ksm-single-title text-center>Judul &quot;Lorem&quot; Ipsum &amp; Kolor Sit Amet</ksm-single-title>
           <ksm-single-excerpt>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ipsa nesciunt quae harum necessitatibus. Fugiat ea aliquam adipisci inventore? Reprehenderit animi quidem veniam accusantium obcaecati facere necessitatibus amet molestiae dolor.</ksm-single-excerpt>
           <div class="max-w-xl mx-auto">
             <ksm-single-credits credits="Seseorang">
-              Oleh 
+              Oleh
             </ksm-single-credits>
             <ksm-single-credits :credits="[{name: 'Orang 1', url: ''},{name: 'Orang 2', url: ''}]">
-              Editor:  
+              Editor:
             </ksm-single-credits>
           </div>
           <div class="content">

@@ -1,11 +1,22 @@
 <script lang="ts">
 import Vue, { VNode } from 'vue'
+
+interface ComponentClasses extends Array<string> {
+  [index: number]: string
+}
+
 export default /*#__PURE__*/Vue.extend({
+  props: {
+    textCenter: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
-    classes() {
-      return [
-        this.$style.core
-      ]
+    classes():Array<string> {
+      let res: ComponentClasses = [ this.$style.core ]
+      if (this.textCenter) { res.push(this.$style.textCenter) }
+      return res
     }
   },
   render (h): VNode {
@@ -21,7 +32,11 @@ export default /*#__PURE__*/Vue.extend({
 </script>
 <style module lang="postcss" scoped>
   .core {
-    @apply font-serif font-bold leading-tight text-3xl text-grey-600 text-center pb-4;
+    @apply font-serif font-bold leading-tight text-3xl text-grey-600 pb-4;
+  }
+
+  .textCenter {
+    @apply text-center
   }
 
   @screen sm {
