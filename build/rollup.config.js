@@ -9,6 +9,9 @@ import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
+import autoprefixer from 'autoprefixer';
+import tailwind from 'tailwindcss';
+
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs.readFileSync('./.browserslistrc')
@@ -45,6 +48,15 @@ const baseConfig = {
       template: {
         isProduction: true,
       },
+      style: {
+        postcssPlugins: [
+          autoprefixer(),
+          tailwind()
+        ],
+        postcssModulesOptions: {
+          generateScopedName: 'ksm-[hash:base64:3]'
+        }
+      }
     },
     postVue: [
       resolve({
@@ -56,7 +68,7 @@ const baseConfig = {
       exclude: 'node_modules/**',
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       babelHelpers: 'bundled',
-    },
+    }
   },
 };
 

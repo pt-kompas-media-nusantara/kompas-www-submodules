@@ -1,5 +1,6 @@
 <script lang="ts">
 import Vue from 'vue';
+import '../src/assets/css/style.css'
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { KompasWwwSubmodulesSample } from '@/entry.esm';
 
@@ -13,6 +14,28 @@ export default Vue.extend({
 
 <template>
   <div id="app">
-    <kompas-www-submodules-sample />
+    <div class="container">
+      <div class="mx-auto max-w-2xl">
+        <article>
+          <ksm-single-title>Judul &quot;Lorem&quot; Ipsum &amp; Kolor Sit Amet</ksm-single-title>
+          <ksm-single-excerpt>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ipsa nesciunt quae harum necessitatibus. Fugiat ea aliquam adipisci inventore? Reprehenderit animi quidem veniam accusantium obcaecati facere necessitatibus amet molestiae dolor.</ksm-single-excerpt>
+          <div class="max-w-xl mx-auto">
+            <ksm-single-credits credits="Seseorang">
+              Oleh 
+            </ksm-single-credits>
+            <ksm-single-credits :credits="[{name: 'Orang 1', url: ''},{name: 'Orang 2', url: ''}]">
+              Editor:  
+            </ksm-single-credits>
+          </div>
+          <div class="content">
+            <ksm-single-paragraph font-size="base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
+            <ksm-single-paragraph font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
+            <ksm-single-paragraph font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
+            <ksm-single-blockquote font-size="base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
+            <ksm-single-blockquote font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
+          </div>
+        </article>
+      </div>
+    </div>
   </div>
 </template>
