@@ -20,12 +20,15 @@ export default Vue.extend({
           <ksm-single-title text-center>Judul &quot;Lorem&quot; Ipsum &amp; Kolor Sit Amet</ksm-single-title>
           <ksm-single-excerpt>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ipsa nesciunt quae harum necessitatibus. Fugiat ea aliquam adipisci inventore? Reprehenderit animi quidem veniam accusantium obcaecati facere necessitatibus amet molestiae dolor.</ksm-single-excerpt>
           <div class="max-w-xl mx-auto">
-            <ksm-single-credits credits="Seseorang">
+            <ksm-single-credits credits="seseorang">
               Oleh
             </ksm-single-credits>
-            <ksm-single-credits :credits="[{name: 'Orang 1', url: ''},{name: 'Orang 2', url: ''}]">
+            <ksm-single-credits transform="uppercase" :credits="[{name: 'orang 1', url: ''},{name: 'orang 2', url: ''}]">
               Editor:
             </ksm-single-credits>
+            <ksm-single-credits transform="capitalize" :credits="[{name: 'orang 1', url: ''},{name: 'orang 2', url: ''}]">
+              Editor:
+            </ksm-single-credits>            
           </div>
           <div class="content">
             <ksm-single-paragraph font-size="base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
