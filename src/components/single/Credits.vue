@@ -15,7 +15,7 @@ export default /*#__PURE__*/Vue.extend({
       type: String,
       default: 'normal',
       validator: value => {
-        return ['normal', 'uppercase', 'capitalize'].indexOf(value) !== -1
+        return ['normal', 'uppercase', 'capitalize'].includes(value)
       }
     }
   },
