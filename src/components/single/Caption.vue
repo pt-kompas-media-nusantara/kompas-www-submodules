@@ -17,9 +17,29 @@ export default /*#__PURE__*/Vue.extend({
     align: {
       type: String,
       default: 'alignnone',
-      validator (align: string) {
-        return ['alignnone', 'right'].includes(align)
+      validator: value => {
+        return ['alignnone', 'alignleft', 'alignright'].includes(value)
       }
+    },
+    caption: {
+      type: String,
+      default: ''
+    },
+    credit: {
+      type: String,
+      default: ''
+    },
+    height: {
+      type: Number,
+      default: 480
+    },
+    width: {
+      type: Number,
+      default: 480
+    },
+    src: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -34,27 +54,67 @@ export default /*#__PURE__*/Vue.extend({
   },
   render (h): VNode {
     return h(
-      'p',
+      'figure',
       {
         class: this.classes
       },
-      this.$slots.default
+      [
+        h(
+          'img',
+          {
+            attrs: {
+              height: this.height,
+              width: this.width,
+              src: this.src
+            }
+          },
+          this.$slots.default
+        ),
+        h(
+          'figcaption',
+          [
+            h(
+              'span',
+              this.credit
+            ),
+            h(
+              'p',
+              this.caption
+            )
+          ]
+        )
+      ]
     )
   }
 })
 </script>
 <style module lang="postcss" scoped>
-  .core {
-    @apply font-system mx-auto max-w-xl text-grey-600 mt-1;
+  figure {
+    @apply block my-1;
   }
 
-  @screen lg {
-    .core {
-      @apply px-0;
-    }
+  figcaption {
+    @apply flex flex-col px-4 text-grey-500 w-full lg:px-0;
   }
+
+  span {
+    @apply block font-sans my-1 text-right text-xs uppercase;
+  }
+
+  .core {
+    @apply font-system mx-auto max-w-xl text-grey-500;
+  }
+
   .alignnone {
-    @apply text-left;
+    @apply max-w-lg mx-auto;
+  }
+
+  .alignleft {
+    @apply float-left max-w-lg mr-0 mx-auto md:mr-4 md:w-1/2;
+  }
+
+  .alignright {
+    @apply float-right max-w-lg ml-0 mx-auto md:ml-4 md:w-1/2;
   }
 
   .base {
@@ -67,10 +127,6 @@ export default /*#__PURE__*/Vue.extend({
 
   .large {
     @apply text-lg;
-  }
-
-  .right {
-    @apply text-right;
   }
 
 </style>
