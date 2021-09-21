@@ -1,22 +1,11 @@
 <script lang="ts">
 import Vue, { VNode } from 'vue'
-
-interface ComponentClasses extends Array<string> {
-  [index: number]: string
-}
-
 export default /*#__PURE__*/Vue.extend({
-  props: {
-    textCenter: {
-      type: Boolean,
-      default: false
-    }
-  },
   computed: {
-    classes(): ComponentClasses {
-      let res: ComponentClasses = [ this.$style.core ]
-      if (this.textCenter) { res.push(this.$style.textCenter) }
-      return res
+    classes() {
+      return [
+        this.$style.core
+      ]
     }
   },
   render (h): VNode {
