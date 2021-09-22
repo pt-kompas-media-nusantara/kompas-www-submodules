@@ -10,7 +10,7 @@ export default /*#__PURE__*/Vue.extend({
   },
   render (h): VNode {
     return h(
-      'h1',
+      'h3',
       {
         class: this.classes
       },
@@ -21,12 +21,14 @@ export default /*#__PURE__*/Vue.extend({
 </script>
 <style module lang="postcss" scoped>
   .core {
-    @apply font-serif font-bold text-3xl text-grey-600;
+    @apply font-serif font-bold text-grey-600;
+    font-size: 1.375rem; /* 22px; */
+    line-height: 2rem;
   }
 
   @screen md {
     .core {
-      @apply text-5xl;
+      @apply text-3xl;
     }
   }
 </style>
