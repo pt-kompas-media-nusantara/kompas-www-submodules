@@ -13,7 +13,7 @@ export default /*#__PURE__*/Vue.extend({
     }
   },
   computed: {
-    classes():Array<string> {
+    classes(): ComponentClasses {
       let res: ComponentClasses = [ this.$style.core ]
       if (this.textCenter) { res.push(this.$style.textCenter) }
       return res
