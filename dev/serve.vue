@@ -30,7 +30,7 @@ export default Vue.extend({
               Editor:
             </ksm-single-credits>            
           </div>
-          <div class="content" style="width: 960px; margin: auto">
+          <div class="content" style="max-width: 960px; margin: auto">
             <ksm-single-paragraph font-size="base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
             <ksm-single-paragraph font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
             <ksm-single-paragraph font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
@@ -60,6 +60,9 @@ export default Vue.extend({
             >
             </ksm-single-caption>
           </div>
+          <ksm-single-h1>Lorem ipsum dolor sit, amet consect.</ksm-single-h1>
+          <ksm-single-h2>Lorem ipsum dolor sit, amet consect.</ksm-single-h2>
+          <ksm-single-h3>Lorem ipsum dolor sit, amet consect.</ksm-single-h3>
         </article>
       </div>
     </div>
