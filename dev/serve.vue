@@ -63,6 +63,9 @@ export default Vue.extend({
           <ksm-single-h1>Lorem ipsum dolor sit, amet consect.</ksm-single-h1>
           <ksm-single-h2>Lorem ipsum dolor sit, amet consect.</ksm-single-h2>
           <ksm-single-h3>Lorem ipsum dolor sit, amet consect.</ksm-single-h3>
+          <ksm-single-h4>Lorem ipsum dolor sit, amet consect.</ksm-single-h4>
+          <ksm-single-h5>Lorem ipsum dolor sit, amet consect.</ksm-single-h5>
+          <ksm-single-h6>Lorem ipsum dolor sit, amet consect.</ksm-single-h6>
         </article>
       </div>
     </div>
