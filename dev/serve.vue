@@ -62,6 +62,7 @@ export default Vue.extend({
             <ksm-single-text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
             <ksm-single-text font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
             <ksm-single-text font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
+            <ksm-single-raw>?ref_src=twsrc%5Etfw/1248657931433693184/</ksm-single-raw>
           </div>
           <ksm-single-h1>Lorem ipsum dolor sit, amet consect.</ksm-single-h1>
           <ksm-single-h2>Lorem ipsum dolor sit, amet consect.</ksm-single-h2>
