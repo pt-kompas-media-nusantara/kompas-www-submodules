@@ -43,13 +43,19 @@ export default /*#__PURE__*/Vue.extend({
     }
   },
   computed: {
-    classes(): ComponentClasses {
+    classes (): ComponentClasses {
       let res: ComponentClasses = [
         this.$style.core
       ]
       res.push(this.$style[this.fontSize])
       res.push(this.$style[this.align])
       return res
+    },
+    classesCredit (): string {
+      return this.$style.classesCredit
+    },
+    classesFigcaption (): string {
+      return this.$style.classesFigcaption
     }
   },
   render (h): VNode {
@@ -72,9 +78,15 @@ export default /*#__PURE__*/Vue.extend({
         ),
         h(
           'figcaption',
+          {
+            class: this.classesFigcaption
+          },
           [
             h(
               'span',
+              {
+                class: this.classesCredit
+              },
               this.credit
             ),
             h(
@@ -89,20 +101,20 @@ export default /*#__PURE__*/Vue.extend({
 })
 </script>
 <style module lang="postcss" scoped>
-  figure {
-    @apply block my-1;
+  .core {
+    @apply block my-1 font-system mx-auto max-w-xl text-grey-500;
   }
 
-  figcaption {
-    @apply flex flex-col px-4 text-grey-500 w-full lg:px-0;
-  }
-
-  span {
+  .classesCredit {
     @apply block font-sans my-1 text-right text-xs uppercase;
   }
 
-  .core {
-    @apply font-system mx-auto max-w-xl text-grey-500;
+  .classesFigcaption {
+    @apply flex flex-col px-4 text-grey-500 w-full lg:px-0;
+  }
+
+  .aligncenter {
+    @apply max-w-lg mx-auto;
   }
 
   .alignnone {

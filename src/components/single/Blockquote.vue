@@ -16,7 +16,7 @@ export default /*#__PURE__*/Vue.extend({
     }
   },
   computed: {
-    classes(): ComponentClasses {
+    classes (): ComponentClasses {
       let res: ComponentClasses = [
         this.$style.core
       ]
@@ -36,14 +36,11 @@ export default /*#__PURE__*/Vue.extend({
 })
 </script>
 <style module lang="postcss" scoped>
-	blockquote {
-		@apply bg-no-repeat mb-8 pt-12 mx-auto max-w-md;
-		background-image: url('../../assets/img/quotes.png');
-		background-position: top center;
-		background-size: 3rem;
-	}
   .core {
-    @apply font-system italic text-center text-grey-600 px-4;
+    @apply bg-no-repeat font-system italic max-w-md mb-8 mx-auto pt-12 px-4 text-center text-grey-600;
+    background-image: url('../../assets/img/quotes.png');
+    background-position: top center;
+    background-size: 3rem;
   }
 
   @screen lg {
