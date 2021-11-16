@@ -9,6 +9,22 @@ export default Vue.extend({
   // components: {
   //  KompasWwwSubmodulesSample,
   // }
+  data: () => ({
+    ol: {
+      body: '<li>asjdajdaksdasd</li> <li>jaskdjaksda</li> <li>ddasjdajsdas</li> <li>dasjdasjdasd</li>',
+      align: 'alignnone',
+      length: 89,
+      type: 'ol',
+      metaBody: {
+        list: [
+          'asjdajdaksdasd',
+          'jaskdjaksda',
+          'ddasjdajsdas',
+          'dasjdasjdasd'
+        ]
+      }
+    }
+  })
 });
 </script>
 
@@ -28,7 +44,7 @@ export default Vue.extend({
             </ksm-single-credits>
             <ksm-single-credits transform="capitalize" :credits="[{name: 'orang 1', url: ''},{name: 'orang 2', url: ''}]">
               Editor:
-            </ksm-single-credits>            
+            </ksm-single-credits>
           </div>
           <div class="content" style="max-width: 960px; margin: auto">
             <ksm-single-paragraph font-size="base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
@@ -70,6 +86,7 @@ export default Vue.extend({
           <ksm-single-h4>Lorem ipsum dolor sit, amet consect.</ksm-single-h4>
           <ksm-single-h5>Lorem ipsum dolor sit, amet consect.</ksm-single-h5>
           <ksm-single-h6>Lorem ipsum dolor sit, amet consect.</ksm-single-h6>
+          <ksm-single-ol :items="ol.metaBody.list" />
         </article>
       </div>
     </div>
