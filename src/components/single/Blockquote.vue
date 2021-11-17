@@ -1,11 +1,8 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
 
-interface ComponentClasses extends Array<string> {
-  [index: number]: string
-}
-
-export default /*#__PURE__*/Vue.extend({
+const componentProps = Vue.extend({
   props: {
     fontSize: {
       type: String,
@@ -14,17 +11,19 @@ export default /*#__PURE__*/Vue.extend({
         return ['base', 'medium', 'large'].includes(size)
       }
     }
-  },
-  computed: {
-    classes (): ComponentClasses {
-      let res: ComponentClasses = [
-        this.$style.core
-      ]
-      res.push(this.$style[this.fontSize])
-      return res
-    }
-  },
-  render (h): VNode {
+  }
+})
+
+@Component
+export default class KsmSingleBlockquote extends componentProps {
+
+  get classes (): Array<string> {
+    const res = [this.$style.core]
+    res.push(this.$style[this.fontSize])
+    return res
+  }
+
+  render (h: CreateElement) {
     return h(
       'blockquote',
       {
@@ -33,9 +32,9 @@ export default /*#__PURE__*/Vue.extend({
       this.$slots.default
     )
   }
-})
+}
 </script>
-<style module lang="postcss" scoped>
+<style module lang="postcss">
   .core {
     @apply bg-no-repeat font-system italic max-w-md mb-8 mx-auto pt-12 px-4 text-center text-grey-600;
     background-image: url('../../assets/img/quotes.png');
