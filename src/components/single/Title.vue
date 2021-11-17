@@ -36,7 +36,7 @@ export default class KsmSingleTitle extends componentProps {
   }
 }
 </script>
-<style module lang="postcss" scoped>
+<style module lang="postcss">
   .core {
     @apply font-serif font-bold leading-tight text-3xl text-grey-600 pb-4;
   }
