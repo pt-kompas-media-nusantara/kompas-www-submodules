@@ -1,6 +1,6 @@
 <script lang="ts">
 import Vue from 'vue';
-import '../src/assets/css/style.css'
+import 'tailwindcss/tailwind.css'
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { KompasWwwSubmodulesSample } from '@/entry.esm';
 
@@ -10,6 +10,56 @@ export default Vue.extend({
   //  KompasWwwSubmodulesSample,
   // }
   data: () => ({
+    image: {
+      body: '<img alt="" class="alignnone size-medium wp-image-11712673" height="973" src="https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431-720x973.png" width="720"/>',
+      align: 'alignnone',
+      length: 0,
+      type: 'image',
+      metaBody: {
+        alt: '',
+        src: 'https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431.png',
+        photographerName: 'Kompas',
+        sizes: {
+          large: {
+            mimeType: 'image/jpeg',
+            permalink: 'https://assetd.kompas.id/Gd81GUO2SpZlZnwH5gPg9UqA-ik=/1280x1730/https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431.png',
+            width: 1280,
+            height: 1730
+          },
+          medium: {
+            mimeType: 'image/jpeg',
+            permalink: 'https://assetd.kompas.id/tSGSgyXhVEpIlR6gO7_ADWPLcAE=/720x973/https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431.png',
+            width: 720,
+            height: 973
+          },
+          mediumLarge: {
+            mimeType: 'image/jpeg',
+            permalink: 'https://assetd.kompas.id/2gmE8YUrIsYUuYjY3dO3uJloH4A=/1024x1384/https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431.png',
+            width: 1024,
+            height: 1384
+          },
+          postThumbnail: {
+            mimeType: 'image/jpeg',
+            permalink: 'https://assetd.kompas.id/rnEUWK8AZLSplhm-3QmhNSMulFM=/676x913/https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431.png',
+            width: 676,
+            height: 913
+          },
+          thumbnail: {
+            mimeType: 'image/jpeg',
+            permalink: 'https://assetd.kompas.id/38wgKrPeSkGwhXGS0zRNJXxF5F0=/150x150/https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431.png',
+            width: 150,
+            height: 150
+          },
+          thumbnailMedium: {
+            mimeType: 'image/jpeg',
+            permalink: 'https://assetd.kompas.id/4HpPk2HnghiHoNs3LQn6tAFpOKw=/300x405/https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431.png',
+            width: 300,
+            height: 405
+          }
+        },
+        credit: 'Kompas'
+      }
+    },
     ol: {
       body: '<li>asjdajdaksdasd</li> <li>jaskdjaksda</li> <li>ddasjdajsdas</li> <li>dasjdasjdasd</li>',
       align: 'alignnone',
@@ -23,8 +73,25 @@ export default Vue.extend({
           'dasjdasjdasd'
         ]
       }
+    },
+    ul: {
+      body: '<li>satuuu</li> <li>dua ktkdasda</li> <li>dajsdajdaksjdad</li> <li>dajsdkajdakjdads</li> <li>dajsdkajkdasd</li>',
+      align: 'alignnone',
+      length: 112,
+      type: 'ul',
+      metaBody: {
+        list: ['satuuu', 'dua ktkdasda', 'dajsdajdaksjdad', 'dajsdkajdakjdads', 'dajsdkajkdasd']
+      }
     }
-  })
+  }),
+  computed: {
+    imageSrcset() {
+      const { sizes } = this.image.metaBody
+      const items = Object.values(sizes)
+
+      return items.map(ob => `${ob.permalink} ${ob.width}w`)
+    }
+  }
 });
 </script>
 
@@ -33,26 +100,61 @@ export default Vue.extend({
     <div class="container">
       <div class="mx-auto max-w-2xl">
         <article>
-          <ksm-single-title text-center>Judul &quot;Lorem&quot; Ipsum &amp; Kolor Sit Amet</ksm-single-title>
+          <ksm-single-title text-center>Judul &quot;Lorem&quot; Ipsum &amp; Kolor Sit Am&#233;t</ksm-single-title>
           <ksm-single-excerpt>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ipsa nesciunt quae harum necessitatibus. Fugiat ea aliquam adipisci inventore? Reprehenderit animi quidem veniam accusantium obcaecati facere necessitatibus amet molestiae dolor.</ksm-single-excerpt>
-          <div class="max-w-xl mx-auto">
-            <ksm-single-credits credits="seseorang">
-              Oleh
-            </ksm-single-credits>
-            <ksm-single-credits transform="uppercase" :credits="[{name: 'orang 1', url: ''},{name: 'orang 2', url: ''}]">
-              Editor:
-            </ksm-single-credits>
-            <ksm-single-credits transform="capitalize" :credits="[{name: 'orang 1', url: ''},{name: 'orang 2', url: ''}]">
-              Editor:
-            </ksm-single-credits>
-          </div>
-          <div class="content" style="max-width: 960px; margin: auto">
-            <ksm-single-paragraph font-size="base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
-            <ksm-single-paragraph font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
-            <ksm-single-paragraph font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
+          <section class="max-w-md mx-auto">
+            <ksm-single-credits credits="seseorang" />
+            <ksm-single-credits credits="seseorang" prefix="Oleh" />
+            <ksm-single-credits :credits="[{name: 'orang 1', url: ''},{name: 'orang 2', url: ''}]" prefix="Editor:" />
+            <ksm-single-credits :credits="[{name: 'orang 1', url: ''},{name: 'orang 2', url: ''}]" prefix="Editor:" uppercase />
+          </section>
+
+          <section name="ksm-single-blockquote">
             <ksm-single-blockquote>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
             <ksm-single-blockquote font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
             <ksm-single-blockquote font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
+          </section>
+
+          <section name="ksm-single-paragraph">
+            <ksm-single-paragraph>Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
+            <ksm-single-paragraph font-size="medium">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
+            <ksm-single-paragraph font-size="large">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
+          </section>
+
+          <section name="ksm-single-text">
+            <ksm-single-text>Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
+            <ksm-single-text font-size="medium">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
+            <ksm-single-text font-size="large">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
+          </section>
+
+          <section name="ksm-single-headings">
+            <ksm-single-h1>Lorem ipsum dolor sit, amet consect.</ksm-single-h1>
+            <ksm-single-h2>Lorem ipsum dolor sit, amet consect.</ksm-single-h2>
+            <ksm-single-h3>Lorem ipsum dolor sit, amet consect.</ksm-single-h3>
+            <ksm-single-h4>Lorem ipsum dolor sit, amet consect.</ksm-single-h4>
+            <ksm-single-h5>Lorem ipsum dolor sit, amet consect.</ksm-single-h5>
+            <ksm-single-h6>Lorem ipsum dolor sit, amet consect.</ksm-single-h6>
+          </section>
+
+          <section name="ksm-single-lists">
+            <ksm-single-ol :items="ol.metaBody.list" />
+            <ksm-single-ul :items="ul.metaBody.list" />
+          </section>
+
+          <section>
+
+            <ksm-single-image
+              :align="image.align"
+              :alt="image.metaBody.alt"
+              :credit="image.credit"
+              :height="image.metaBody.sizes.mediumLarge.height"
+              :src="image.metaBody.sizes.mediumLarge.permalink"
+              :srcset="imageSrcset"
+              :width="image.metaBody.sizes.mediumLarge.width"
+            />
+
+
+
             <ksm-single-paragraph font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
             <ksm-single-caption
               font-size="medium"
@@ -75,18 +177,10 @@ export default Vue.extend({
               caption="Lorem ipsum dolor sit, amet consectetur adipisicing elit."
             >
             </ksm-single-caption>
-            <ksm-single-text>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
-            <ksm-single-text font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
-            <ksm-single-text font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
             <ksm-single-raw>?ref_src=twsrc%5Etfw/1248657931433693184/</ksm-single-raw>
-          </div>
-          <ksm-single-h1>Lorem ipsum dolor sit, amet consect.</ksm-single-h1>
-          <ksm-single-h2>Lorem ipsum dolor sit, amet consect.</ksm-single-h2>
-          <ksm-single-h3>Lorem ipsum dolor sit, amet consect.</ksm-single-h3>
-          <ksm-single-h4>Lorem ipsum dolor sit, amet consect.</ksm-single-h4>
-          <ksm-single-h5>Lorem ipsum dolor sit, amet consect.</ksm-single-h5>
-          <ksm-single-h6>Lorem ipsum dolor sit, amet consect.</ksm-single-h6>
-          <ksm-single-ol :items="ol.metaBody.list" />
+
+
+          </section>
         </article>
       </div>
     </div>
