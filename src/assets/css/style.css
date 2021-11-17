@@ -6,7 +6,7 @@
 
 /* Adding Base Styles */
 /* base untuk tampilan mobile & tablet */
-@layer base {
+/* @layer base {
   h1 {
       @apply text-3xl;
   }
@@ -26,10 +26,10 @@
   h6 {
       @apply text-base;
   }
-}
+} */
 
 /* untuk tampilan desktop */
-@screen md {
+/* @screen md {
   h1 {
       @apply text-5xl;
   }
@@ -48,4 +48,4 @@
   h6 {
       @apply text-base;
   }
-}
+} */
