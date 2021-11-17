@@ -141,8 +141,7 @@ export default Vue.extend({
             <ksm-single-ul :items="ul.metaBody.list" />
           </section>
 
-          <section>
-
+          <section name="ksm-single-image">
             <ksm-single-image
               :align="image.align"
               :alt="image.metaBody.alt"
@@ -152,6 +151,11 @@ export default Vue.extend({
               :srcset="imageSrcset"
               :width="image.metaBody.sizes.mediumLarge.width"
             />
+          </section>
+
+          <section>
+
+
 
 
 
