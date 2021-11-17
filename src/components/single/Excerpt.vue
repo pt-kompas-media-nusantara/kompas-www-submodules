@@ -1,43 +1,23 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
-export default /*#__PURE__*/Vue.extend({
-  computed: {
-    classesContainer(): string {
-      return this.$style.coreContainer
-    },
-    classesP(): string {
-      return this.$style.coreP
-    }
-  },
-  render (h): VNode {
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
+
+@Component
+export default class KsmSingleTitle extends Vue {
+  render (h:CreateElement) {
     return h(
-      'div',
+      'p',
       {
-        class: this.classesContainer
+        class: this.$style.core
       },
-      [
-        h(
-          'p',
-          {
-            class: this.classesP
-          },
-          /**
-           * @slot Slot standar Vue
-           */
-          this.$slots.default
-        )
-      ]
+      this.$slots.default
     )
   }
-})
+}
 </script>
-<style module lang="postcss" scoped>
-  .coreContainer {
-    @apply mx-auto w-full max-w-md;
-  }
-
-  .coreP {
-    @apply font-system text-center leading-loose;
+<style module lang="postcss">
+  .core {
+    @apply font-system leading-loose mx-auto text-center w-full max-w-md;
   }
 
 </style>
