@@ -1,113 +1,108 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
 
-interface ComponentClasses extends Array<string> {
-  [index: number]: string
+interface creditItem {
+  name: string,
+  url: string | null
 }
 
-export default /*#__PURE__*/Vue.extend({
+const componentProps = Vue.extend({
   props: {
     credits: {
-      type: [String, Array as () => { name: string, url: string }[]],
-      default: '',
+      type: [ String, Array as () =>  { name: string, url: string }[] ],
+      required: true
     },
-    transform: {
+    prefix: {
       type: String,
-      default: 'normal',
-      validator: value => {
-        return ['normal', 'uppercase', 'capitalize'].includes(value)
-      }
+      default: ''
+    },
+    uppercase: {
+      type: Boolean,
+      default: false
     }
-  },
-  computed: {
-    classesChild(): ComponentClasses {
-      let res: ComponentClasses = [ this.$style.core ]
-      if (this.transform) {
-        switch (this.transform) {
-          case 'uppercase':
-            res.push(this.$style.txtUppercase)
-            break;
-          case 'capitalize':
-            res.push(this.$style.txtCapitalize)
-            break;
-          case 'normal':
-          default:
-            res.push(this.$style.txtNormal)
-            break;
+  }
+})
+
+@Component
+export default class KsmSingleCredits extends componentProps {
+
+  get classes (): Array<string> {
+    let items = [this.$style.credit]
+
+    if (this.uppercase) {
+      items.push(this.$style.txtUppercase)
+    }
+
+    return items
+  }
+
+  get persons (): string { // Array<creditItem>
+    let res:Array<creditItem> = []
+
+    if (typeof this.credits === 'string') {
+      res = [
+        {
+        name: this.credits,
+        url: null
         }
-      }
-      return res
-    }
-  },
-  render (h): VNode {
-    const children = [
-        h(
-          'span',
-          {
-            class: this.$style.by
-          },
-          /**
-           * @slot Slot standar Vue
-           */
-          this.$slots.default
-        )
-    ]
-
-    if (this.credits) {
-      const letos = this.credits
-      if (typeof letos === 'string') {
-        children.push(
-          h(
-            'span',
-            {
-              class: this.classesChild
-            },
-            letos
-          )
-        )
-      } else {
-        const rowLength = letos.length
-        letos.map((item:{ name: string, url: string }, i) => {
-          children.push(
-            h(
-              !item.url ? 'span' : 'a',
-              {
-                attrs:{
-                  href: item.url ? item.url : ''
-                },
-                class: this.classesChild
-              },
-              item.name + (rowLength !== i+1 ? ', ' : '')
-            )
-          )
-        })
-      }
+      ]
     }
 
+    if (Array.isArray(this.credits)) {
+      res = this.credits
+    }
+
+    /**
+     * Sambil menunggu kejelasan soal halaman profil penulis
+     * sementara ini mengembalikan string dahulu
+     */
+    return res.map(ob => ob.name).join(', ')
+  }
+
+  render (h: CreateElement) {
+    const childPrefix = h(
+      'div',
+      {
+        class: this.$style.prefix
+      },
+      this.prefix
+    )
+    const childPersons = h(
+      'div',
+      {
+        class: this.classes
+      },
+      this.persons
+    )
+    const children = [childPersons]
+
+    if (this.prefix && this.prefix !== '') { children.unshift(childPrefix) }
     return h(
       'div',
+      {
+        class: this.$style.container
+      },
       children
     )
   }
-})
+
+}
 </script>
-<style module lang="postcss" scoped>
-  .core {
-    @apply font-bold;
+<style module lang="postcss">
+  .container {
+    @apply flex;
   }
 
-  .by {
+  .credit {
+    @apply flex font-bold;
+  }
+
+  .prefix {
     @apply mr-1;
   }
 
-  .txtNormal {
-    @apply normal-case;
-  }
-  .txtCapitalize {
-    @apply capitalize;
-  }
   .txtUppercase {
     @apply uppercase;
   }
-
 </style>
