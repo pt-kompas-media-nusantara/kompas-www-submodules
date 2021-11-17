@@ -10,6 +10,10 @@ const componentProps = Vue.extend({
       validator (size: string) {
         return ['base', 'medium', 'large'].includes(size)
       }
+    },
+    item: {
+      type: Object,
+      required: true
     }
   }
 })
@@ -22,20 +26,27 @@ export default class KsmSingleParagraph extends componentProps {
     return res
   }
 
+  get text ():string {
+    const { body = null } = this.item
+    return body
+  }
+
   render (h:CreateElement) {
     return h(
       'p',
       {
-        class: this.classes
-      },
-      this.$slots.default
+        class: this.classes,
+        domProps: {
+          innerHTML: this.text
+        }
+      }
     )
   }
 }
 </script>
 <style module lang="postcss">
   .core {
-    @apply font-system leading-normal max-w-md mx-auto my-3 px-4 text-grey-600;
+    @apply font-system leading-loose max-w-md mx-auto my-4 px-4 text-grey-600;
   }
 
   @screen lg {

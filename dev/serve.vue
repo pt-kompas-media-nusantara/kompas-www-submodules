@@ -74,6 +74,16 @@ export default Vue.extend({
         ]
       }
     },
+    text: {
+      body: 'Putusan Mahkamah Agung mengenai uji materi terhadap Peraturan Pemerintah Nomor 99 Tahun 2012 tentang Syarat &amp; Tata Cara Pelaksanaan Hak Warga Binaan, yang menganulir pembatasan pemberian remisi kepada koruptor, seolah menguatkan dugaan pelemahan terhadap pemberantasan korupsi. Dengan alasan persamaan hak bagi narapidana, pelonggaran terhadap pelaku korupsi itu nyatanya tidak berlaku bagi jenis kejahatan khusus lainnya, seperti terorisme, narkotika, dan kejahatan lingkungan, yang juga diatur di dalam peraturan pemerintah tersebut.',
+      align: 'alignnone',
+      length: 537,
+      type: 'text',
+      metaBody: {
+        alt: '',
+        text: 'Putusan Mahkamah Agung mengenai uji materi terhadap Peraturan Pemerintah Nomor 99 Tahun 2012 tentang Syarat &amp; Tata Cara Pelaksanaan Hak Warga Binaan, yang menganulir pembatasan pemberian remisi kepada koruptor, seolah menguatkan dugaan pelemahan terhadap pemberantasan korupsi. Dengan alasan persamaan hak bagi narapidana, pelonggaran terhadap pelaku korupsi itu nyatanya tidak berlaku bagi jenis kejahatan khusus lainnya, seperti terorisme, narkotika, dan kejahatan lingkungan, yang juga diatur di dalam peraturan pemerintah tersebut.'
+      }
+    },
     ul: {
       body: '<li>satuuu</li> <li>dua ktkdasda</li> <li>dajsdajdaksjdad</li> <li>dajsdkajdakjdads</li> <li>dajsdkajkdasd</li>',
       align: 'alignnone',
@@ -122,9 +132,9 @@ export default Vue.extend({
           </section>
 
           <section name="ksm-single-text">
-            <ksm-single-text>Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
-            <ksm-single-text font-size="medium">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
-            <ksm-single-text font-size="large">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-text>
+            <ksm-single-text :item="text" />
+            <ksm-single-text font-size="medium" :item="text" />
+            <ksm-single-text font-size="large" :item="text" />
           </section>
 
           <section name="ksm-single-headings">
