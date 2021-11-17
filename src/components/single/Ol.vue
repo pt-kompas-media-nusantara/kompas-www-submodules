@@ -1,47 +1,23 @@
-
+<template>
+  <ol :class="$style.parent">
+    <li v-for="item in items" :key="item" :class="$style.child" v-html="item" />
+  </ol>
+</template>
 <script lang="ts">
-import Vue, { VNode } from 'vue'
+import Vue from 'vue'
+import Component from 'vue-class-component'
 
-interface ComponentClasses extends Array<string> {
-  [index: number]: string
-}
-
-export default Vue.extend({
-  name: 'KsmSingleOl',
+const componentProps = Vue.extend({
   props: {
     items: {
-      type: Array as () => Array<string>,
+      type: Array,
       required: true
     }
-  },
-  computed: {
-    childClasses (): ComponentClasses {
-      return [this.$style.child]
-    },
-    parentClasses (): ComponentClasses {
-      return [this.$style.parent]
-    }
-  },
-  render (h): VNode {
-    const items = [...this.items]
-    const children = items.map((ob:string) => {
-      return h(
-        'li',
-        {
-          class: this.childClasses
-        },
-        ob
-      )
-    })
-    return h(
-      'ol',
-      {
-        class: this.parentClasses
-      },
-      children
-    )
-  },
+  }
 })
+
+@Component
+export default class KsmSingleOl extends componentProps {}
 </script>
 <style module lang="postcss">
   .parent {
