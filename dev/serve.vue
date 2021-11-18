@@ -95,12 +95,17 @@ export default Vue.extend({
       }
     },
     ul: {
-      body: '<li>satuuu</li> <li>dua ktkdasda</li> <li>dajsdajdaksjdad</li> <li>dajsdkajdakjdads</li> <li>dajsdkajkdasd</li>',
+      body: '<li>Jakarta Art Stage (2017)</li> <li>Solo Exhibition: Style &amp; Substance Porcelain Furniture &amp; Interior, Jakarta (2017)</li> <li>ICAD (Indonesia Contemporary Art &amp; Design) (2016)</li>',
       align: 'alignnone',
-      length: 112,
+      length: 196,
       type: 'ul',
       metaBody: {
-        list: ['satuuu', 'dua ktkdasda', 'dajsdajdaksjdad', 'dajsdkajdakjdads', 'dajsdkajkdasd']
+        alt: '',
+        list: [
+          'Jakarta Art Stage (2017)',
+          'Solo Exhibition: Style &amp; Substance Porcelain Furniture &amp; Interior, Jakarta (2017)',
+          'ICAD (Indonesia Contemporary Art &amp; Design) (2016)'
+        ]
       }
     },
     url: {
@@ -161,8 +166,12 @@ export default Vue.extend({
           </section>
 
           <section name="ksm-single-lists">
-            <ksm-single-ol :items="ol.metaBody.list" />
-            <ksm-single-ul :items="ul.metaBody.list" />
+            <ksm-single-ol :item="ol" />
+            <ksm-single-ol font-size="medium" :item="ol" />
+            <ksm-single-ol font-size="large" :item="ol" />
+            <ksm-single-ul :item="ul" />
+            <ksm-single-ul font-size="medium" :item="ul" />
+            <ksm-single-ul font-size="large" :item="ul" />
           </section>
 
           <section name="ksm-single-paragraph">
