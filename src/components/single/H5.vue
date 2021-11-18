@@ -17,12 +17,6 @@ export default class KsmSingleH2 extends Vue {
 </script>
 <style module lang="postcss" scoped>
   .core {
-    @apply font-serif font-bold mx-auto text-lg text-grey-600 w-full max-w-md;
-  }
-
-  @screen md {
-    .core {
-      @apply text-xl;
-    }
+    @apply font-serif font-bold mx-auto px-4 lg:px-0 text-lg md:text-xl text-grey-600 w-full max-w-md;
   }
 </style>

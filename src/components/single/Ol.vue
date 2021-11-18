@@ -21,15 +21,9 @@ export default class KsmSingleOl extends componentProps {}
 </script>
 <style module lang="postcss">
   .parent {
-    @apply font-system leading-loose px-4 text-grey-600 text-lg w-full mx-auto pb-8;
+    @apply font-system leading-loose px-4 lg:px-0 text-grey-600 text-lg w-full max-w-md mx-auto pb-8;
     counter-reset: inst;
 		list-style: none;
-  }
-
-  @screen lg {
-    .parent {
-      @apply max-w-md;
-    }
   }
 
   .child::before {

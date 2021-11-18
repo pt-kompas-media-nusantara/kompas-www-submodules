@@ -49,12 +49,6 @@ export default class KsmSingleUrl extends componentProps {
     @apply font-system leading-loose max-w-md mx-auto my-4 px-4 lg:px-0 text-grey-600;
   }
 
-  /* @screen lg {
-    .core {
-      @apply px-0;
-    }
-  } */
-
   .core a {
     @apply text-blue-royal-700 hover:text-blue-royal-500 underline;
   }

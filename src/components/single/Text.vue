@@ -46,13 +46,7 @@ export default class KsmSingleParagraph extends componentProps {
 </script>
 <style module lang="postcss">
   .core {
-    @apply font-system leading-loose max-w-md mx-auto my-4 px-4 text-grey-600;
-  }
-
-  @screen lg {
-    .core {
-      @apply px-0;
-    }
+    @apply font-system leading-loose max-w-md mx-auto my-4 px-4 lg:px-0 text-grey-600;
   }
 
   .base {
