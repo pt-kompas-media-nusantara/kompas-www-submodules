@@ -10,6 +10,16 @@ export default Vue.extend({
   //  KompasWwwSubmodulesSample,
   // }
   data: () => ({
+    blockquote: {
+      body: 'Jika laju vaksinasi masih lamban, terutama untuk kelompok rentan, munculnya virus musiman, dan berkurangnya kekebalan dari infeksi dan vaksin, lonjakan kasus dapat kembali terjadi.',
+      align: 'alignnone',
+      length: 180,
+      type: 'blockquote',
+      metaBody: {
+        alt: '',
+        text: 'Jika laju vaksinasi masih lamban, terutama untuk kelompok rentan, munculnya virus musiman, dan berkurangnya kekebalan dari infeksi dan vaksin, lonjakan kasus dapat kembali terjadi.'
+      }
+    },
     image: {
       body: '<img alt="" class="alignnone size-medium wp-image-11712673" height="973" src="https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431-720x973.png" width="720"/>',
       align: 'alignnone',
@@ -130,9 +140,9 @@ export default Vue.extend({
           </section>
 
           <section name="ksm-single-blockquote">
-            <ksm-single-blockquote>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
-            <ksm-single-blockquote font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
-            <ksm-single-blockquote font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
+            <ksm-single-blockquote :item="blockquote" />
+            <ksm-single-blockquote font-size="medium" :item="blockquote" />
+            <ksm-single-blockquote font-size="large" :item="blockquote" />
           </section>
 
           <section name="ksm-single-headings">
