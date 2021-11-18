@@ -1,23 +1,44 @@
-<template>
-  <ul :class="$style.parent">
-    <li v-for="item in items" :key="item" :class="$style.child" v-html="item" />
-  </ul>
-</template>
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { CreateElement } from 'vue'
 import Component from 'vue-class-component'
 
 const componentProps = Vue.extend({
   props: {
-    items: {
-      type: Array,
+    item: {
+      type: Object,
       required: true
     }
   }
 })
 
 @Component
-export default class KsmSingleUl extends componentProps {}
+export default class KsmSingleUl extends componentProps {
+  get items ():Array<string> {
+    const { list } = this.item?.metaBody
+    return list
+  }
+
+  render(h: CreateElement) {
+    const children = this.items.map((ob:any) => {
+      return h(
+        'li',
+        {
+          class: this.$style.child,
+          domProps: {
+            innerHTML: ob
+          }
+        }
+      )
+    })
+    return h(
+      'ul',
+      {
+        class: this.$style.parent
+      },
+      children
+    )
+  }
+}
 </script>
 <style module lang="postcss">
   .parent {
