@@ -92,6 +92,16 @@ export default Vue.extend({
       metaBody: {
         list: ['satuuu', 'dua ktkdasda', 'dajsdajdaksjdad', 'dajsdkajdakjdads', 'dajsdkajkdasd']
       }
+    },
+    url: {
+      body: 'Baca juga : <a href="https://www.kompas.id/baca/riset/2021/04/14/lebih-dari-dua-calon-presiden-lebih-baik">Lebih Dari Dua Calon Presiden, Lebih Baik</a>',
+      align: 'alignnone',
+      length: 152,
+      type: 'url',
+      metaBody: {
+        alt: '',
+        src: 'Baca juga : <a href="https://www.kompas.id/baca/riset/2021/04/14/lebih-dari-dua-calon-presiden-lebih-baik">Lebih Dari Dua Calon Presiden, Lebih Baik</a>'
+      }
     }
   }),
   computed: {
@@ -125,6 +135,26 @@ export default Vue.extend({
             <ksm-single-blockquote font-size="large">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-blockquote>
           </section>
 
+          <section name="ksm-single-headings">
+            <ksm-single-h1>Lorem ipsum dolor sit, amet consect.</ksm-single-h1>
+            <ksm-single-h2>Lorem ipsum dolor sit, amet consect.</ksm-single-h2>
+            <ksm-single-h3>Lorem ipsum dolor sit, amet consect.</ksm-single-h3>
+            <ksm-single-h4>Lorem ipsum dolor sit, amet consect.</ksm-single-h4>
+            <ksm-single-h5>Lorem ipsum dolor sit, amet consect.</ksm-single-h5>
+            <ksm-single-h6>Lorem ipsum dolor sit, amet consect.</ksm-single-h6>
+          </section>
+
+          <section name="ksm-single-image">
+            <ksm-single-image
+              :item="image"
+            />
+          </section>
+
+          <section name="ksm-single-lists">
+            <ksm-single-ol :items="ol.metaBody.list" />
+            <ksm-single-ul :items="ul.metaBody.list" />
+          </section>
+
           <section name="ksm-single-paragraph">
             <ksm-single-paragraph>Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
             <ksm-single-paragraph font-size="medium">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
@@ -137,25 +167,15 @@ export default Vue.extend({
             <ksm-single-text font-size="large" :item="text" />
           </section>
 
-          <section name="ksm-single-headings">
-            <ksm-single-h1>Lorem ipsum dolor sit, amet consect.</ksm-single-h1>
-            <ksm-single-h2>Lorem ipsum dolor sit, amet consect.</ksm-single-h2>
-            <ksm-single-h3>Lorem ipsum dolor sit, amet consect.</ksm-single-h3>
-            <ksm-single-h4>Lorem ipsum dolor sit, amet consect.</ksm-single-h4>
-            <ksm-single-h5>Lorem ipsum dolor sit, amet consect.</ksm-single-h5>
-            <ksm-single-h6>Lorem ipsum dolor sit, amet consect.</ksm-single-h6>
+          <section name="ksm-single-url">
+            <ksm-single-url :item="url" />
+            <ksm-single-url :item="url" fontSize="medium" />
+            <ksm-single-url :item="url" fontSize="large" />
           </section>
 
-          <section name="ksm-single-lists">
-            <ksm-single-ol :items="ol.metaBody.list" />
-            <ksm-single-ul :items="ul.metaBody.list" />
-          </section>
 
-          <section name="ksm-single-image">
-            <ksm-single-image
-              :item="image"
-            />
-          </section>
+
+
 
           <section>
 
