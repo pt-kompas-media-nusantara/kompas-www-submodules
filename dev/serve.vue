@@ -153,13 +153,7 @@ export default Vue.extend({
 
           <section name="ksm-single-image">
             <ksm-single-image
-              :align="image.align"
-              :alt="image.metaBody.alt"
-              :credit="image.credit"
-              :height="image.metaBody.sizes.mediumLarge.height"
-              :src="image.metaBody.sizes.mediumLarge.permalink"
-              :srcset="imageSrcset"
-              :width="image.metaBody.sizes.mediumLarge.width"
+              :item="image"
             />
           </section>
 
