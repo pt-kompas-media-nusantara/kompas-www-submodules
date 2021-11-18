@@ -1,25 +1,31 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
 
-interface ComponentClasses extends Array<string> {
-  [index: number]: string
-}
-
-export default /*#__PURE__*/Vue.extend({
+const componentProps = Vue.extend({
   props: {
     textCenter: {
       type: Boolean,
       default: false
     }
-  },
-  computed: {
-    classes():Array<string> {
-      let res: ComponentClasses = [ this.$style.core ]
-      if (this.textCenter) { res.push(this.$style.textCenter) }
-      return res
+  }
+})
+
+@Component
+export default class KsmSingleTitle extends componentProps {
+  get classes (): Array<string> {
+    const res = [
+      this.$style.core
+    ]
+
+    if (this.textCenter) {
+      res.push(this.$style.textCenter)
     }
-  },
-  render (h): VNode {
+
+    return res
+  }
+
+  render (h: CreateElement) {
     return h(
       'h1',
       {
@@ -28,9 +34,9 @@ export default /*#__PURE__*/Vue.extend({
       this.$slots.default
     )
   }
-})
+}
 </script>
-<style module lang="postcss" scoped>
+<style module lang="postcss">
   .core {
     @apply font-serif font-bold leading-tight text-3xl text-grey-600 pb-4;
   }

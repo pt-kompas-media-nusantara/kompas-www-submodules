@@ -1,67 +1,108 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
-export default /*#__PURE__*/Vue.extend({
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
+
+interface creditItem {
+  name: string,
+  url: string | null
+}
+
+const componentProps = Vue.extend({
   props: {
     credits: {
-      type: [String, Array as () => { name: string, url: string }[]],
-      default: '',
+      type: [ String, Array as () =>  { name: string, url: string }[] ],
+      required: true
+    },
+    prefix: {
+      type: String,
+      default: ''
+    },
+    uppercase: {
+      type: Boolean,
+      default: false
     }
-  },
-  render (h): VNode {
-    const children = [
-        h(
-          'span',
-          {
-            class: this.$style.by
-          },
-          /**
-           * @slot Slot standar Vue
-           */
-          this.$slots.default
-        )
-    ]
+  }
+})
 
-    if (this.credits) {
-      const letos = this.credits
-      if (typeof letos === 'string') {
-        children.push(
-          h(
-            'strong',
-            letos
-          )
-        )
-      } else {
-        const rowLength = letos.length
-        letos.map((item:{ name: string, url: string }, i) => {
-          children.push(
-            h(
-              !item.url ? 'strong' : 'a',
-              {
-                attrs:{
-                  href: item.url ? item.url : ''
-                }
-              },
-              item.name + (rowLength !== i+1 ? ', ' : '')
-            )
-          )
-        })
-      }
+@Component
+export default class KsmSingleCredits extends componentProps {
+
+  get classes (): Array<string> {
+    let items = [this.$style.credit]
+
+    if (this.uppercase) {
+      items.push(this.$style.txtUppercase)
     }
 
+    return items
+  }
+
+  get persons (): string { // Array<creditItem>
+    let res:Array<creditItem> = []
+
+    if (typeof this.credits === 'string') {
+      res = [
+        {
+        name: this.credits,
+        url: null
+        }
+      ]
+    }
+
+    if (Array.isArray(this.credits)) {
+      res = this.credits
+    }
+
+    /**
+     * Sambil menunggu kejelasan soal halaman profil penulis
+     * sementara ini mengembalikan string dahulu
+     */
+    return res.map(ob => ob.name).join(', ')
+  }
+
+  render (h: CreateElement) {
+    const childPrefix = h(
+      'div',
+      {
+        class: this.$style.prefix
+      },
+      this.prefix
+    )
+    const childPersons = h(
+      'div',
+      {
+        class: this.classes
+      },
+      this.persons
+    )
+    const children = [childPersons]
+
+    if (this.prefix && this.prefix !== '') { children.unshift(childPrefix) }
     return h(
       'div',
+      {
+        class: this.$style.container
+      },
       children
     )
   }
-})
+
+}
 </script>
-<style module lang="postcss" scoped>
-  .coreContainer {
-    @apply mx-auto w-full max-w-md;
+<style module lang="postcss">
+  .container {
+    @apply flex;
   }
 
-  .by {
+  .credit {
+    @apply flex font-bold;
+  }
+
+  .prefix {
     @apply mr-1;
   }
 
+  .txtUppercase {
+    @apply uppercase;
+  }
 </style>
