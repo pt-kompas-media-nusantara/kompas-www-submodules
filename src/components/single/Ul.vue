@@ -1,7 +1,7 @@
 <template>
-  <ol :class="$style.parent">
+  <ul :class="$style.parent">
     <li v-for="item in items" :key="item" :class="$style.child" v-html="item" />
-  </ol>
+  </ul>
 </template>
 <script lang="ts">
 import Vue from 'vue'
@@ -17,19 +17,17 @@ const componentProps = Vue.extend({
 })
 
 @Component
-export default class KsmSingleOl extends componentProps {}
+export default class KsmSingleUl extends componentProps {}
 </script>
 <style module lang="postcss">
   .parent {
-    @apply font-system leading-loose px-4 lg:px-0 text-grey-600 text-lg w-full max-w-md mx-auto pb-8;
-    counter-reset: inst;
+    @apply font-system leading-loose mx-auto pb-8 px-4 lg:px-0 text-grey-600 text-lg w-full max-w-md;
 		list-style: none;
   }
 
   .child::before {
     @apply mr-4;
-    counter-increment: inst;
-    content: counter(inst)".";
+    content: "\203A";
   }
 
 </style>

@@ -1,6 +1,6 @@
 {
   "name": "@kompas/submodules",
-  "version": "0.1.0-alpha-2",
+  "version": "0.1.0-alpha-5",
   "description": "Komponen-komponen pakai-ulang lintas www & preview",
   "main": "dist/kompas-www-submodules.ssr.js",
   "browser": "dist/kompas-www-submodules.esm.js",
@@ -22,6 +22,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-proposal-decorators": "^7.16.0",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.12.7",
     "@rollup/plugin-alias": "^3.1.1",
@@ -42,6 +44,7 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7",
     "typescript": "^3.8.3",
     "vue": "^2.6.12",
+    "vue-class-component": "^7.2.6",
     "vue-template-compiler": "^2.6.12"
   },
   "peerDependencies": {

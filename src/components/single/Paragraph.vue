@@ -1,22 +1,28 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
-export default /*#__PURE__*/Vue.extend({
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
+
+const componentProps = Vue.extend({
   props: {
     fontSize: {
       type: String,
-      default: ''
+      default: 'base',
+      validator (size: string) {
+        return ['base', 'medium', 'large'].includes(size)
+      }
     }
-  },
-  computed: {
-    classes(): string[] {
-      let res= [
-        this.$style.core
-      ]
-      res.push(this.$style[this.fontSize])
-      return res
-    }
-  },
-  render (h): VNode {
+  }
+})
+
+@Component
+export default class KsmSingleParagraph extends componentProps {
+  get classes (): Array<string> {
+    const res = [this.$style.core]
+    res.push(this.$style[this.fontSize])
+    return res
+  }
+
+  render (h:CreateElement) {
     return h(
       'p',
       {
@@ -25,9 +31,9 @@ export default /*#__PURE__*/Vue.extend({
       this.$slots.default
     )
   }
-})
+}
 </script>
-<style module lang="postcss" scoped>
+<style module lang="postcss">
   .core {
     @apply font-system mx-auto max-w-md text-grey-600 my-4 px-4;
   }

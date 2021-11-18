@@ -19,7 +19,7 @@ const componentProps = Vue.extend({
 })
 
 @Component
-export default class KsmSingleBlockquote extends componentProps {
+export default class KsmSingleUrl extends componentProps {
   get classes (): Array<string> {
     const res = [this.$style.core]
     res.push(this.$style[this.fontSize])
@@ -31,43 +31,37 @@ export default class KsmSingleBlockquote extends componentProps {
     return body
   }
 
-  render (h: CreateElement) {
+  render (h:CreateElement) {
     return h(
-      'blockquote',
+      'p',
       {
-        class: this.classes
-      },
-      [
-        h(
-          'p',
-          {},
-          this.text
-        )
-      ]
+        class: this.classes,
+        domProps: {
+          innerHTML: this.text
+        }
+      }
     )
   }
 }
 </script>
 <style module lang="postcss">
   .core {
-    @apply bg-no-repeat font-system italic mb-8 mx-auto pt-12 px-4 lg:px-0 text-center text-grey-600 max-w-md;
-    background-image: url('https://www.kompas.id/img/icons/quotes.png');
-    background-position: top center;
-    background-size: 3rem;
+    @apply font-system leading-loose max-w-md mx-auto my-4 px-4 lg:px-0 text-grey-600;
   }
 
-  .base p {
-    @apply text-2xl leading-normal;
+  .core a {
+    @apply text-blue-royal-700 hover:text-blue-royal-500 underline;
   }
 
-  .medium p {
-    font-size: 1.625rem;
-    line-height: 2.375rem; /* 38px; */
+  .base {
+    @apply text-lg;
   }
 
-  .large p {
-    font-size: 1.750rem;
-    line-height: 2.5rem; /* 40px; */
+  .medium {
+    @apply text-xl;
   }
 
+  .large {
+    @apply text-2xl;
+  }
 </style>

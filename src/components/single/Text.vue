@@ -1,11 +1,8 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
 
-interface ComponentClasses extends Array<string> {
-  [index: number]: string
-}
-
-export default /*#__PURE__*/Vue.extend({
+const componentProps = Vue.extend({
   props: {
     fontSize: {
       type: String,
@@ -13,37 +10,43 @@ export default /*#__PURE__*/Vue.extend({
       validator (size: string) {
         return ['base', 'medium', 'large'].includes(size)
       }
+    },
+    item: {
+      type: Object,
+      required: true
     }
-  },
-  computed: {
-    classes(): ComponentClasses {
-      let res: ComponentClasses = [
-        this.$style.core
-      ]
-      res.push(this.$style[this.fontSize])
-      return res
-    }
-  },
-  render (h): VNode {
+  }
+})
+
+@Component
+export default class KsmSingleParagraph extends componentProps {
+  get classes (): Array<string> {
+    const res = [this.$style.core]
+    res.push(this.$style[this.fontSize])
+    return res
+  }
+
+  get text ():string {
+    const { body = null } = this.item
+    return body
+  }
+
+  render (h:CreateElement) {
     return h(
       'p',
       {
-        class: this.classes
-      },
-      this.$slots.default
+        class: this.classes,
+        domProps: {
+          innerHTML: this.text
+        }
+      }
     )
   }
-})
+}
 </script>
-<style module lang="postcss" scoped>
+<style module lang="postcss">
   .core {
-    @apply font-system leading-normal max-w-md mx-auto my-3 px-4 text-grey-600;
-  }
-
-  @screen lg {
-    .core {
-      @apply px-0;
-    }
+    @apply font-system leading-loose max-w-md mx-auto my-4 px-4 lg:px-0 text-grey-600;
   }
 
   .base {
