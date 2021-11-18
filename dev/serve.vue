@@ -167,6 +167,8 @@ export default Vue.extend({
 
           <section name="ksm-single-lists">
             <ksm-single-ol :item="ol" />
+            <ksm-single-ol font-size="medium" :item="ol" />
+            <ksm-single-ol font-size="large" :item="ol" />
             <ksm-single-ul :item="ul" />
             <ksm-single-ul font-size="medium" :item="ul" />
             <ksm-single-ul font-size="large" :item="ul" />
