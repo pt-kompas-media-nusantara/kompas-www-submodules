@@ -1,23 +1,19 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
-export default /*#__PURE__*/Vue.extend({
-  computed: {
-    classes () {
-      return [
-        this.$style.core
-      ]
-    }
-  },
-  render (h): VNode {
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
+
+@Component
+export default class KsmSingleRaw extends Vue {
+  render(h: CreateElement) {
     return h(
-      'p',
+      'h1',
       {
-        class: this.classes
+        class: this.$style.core
       },
       this.$slots.default
     )
   }
-})
+}
 </script>
 <style module lang="postcss" scoped>
   .core {

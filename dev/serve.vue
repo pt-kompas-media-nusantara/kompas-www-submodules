@@ -21,12 +21,12 @@ export default Vue.extend({
       }
     },
     image: {
-      body: '<img alt="" class="alignnone size-medium wp-image-11712673" height="973" src="https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431-720x973.png" width="720"/>',
-      align: 'alignnone',
+      body: '<img alt="" class="alignright size-medium wp-image-11712673" height="973" src="https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431-720x973.png" width="720"/>',
+      align: 'alignright',
       length: 0,
       type: 'image',
       metaBody: {
-        alt: '',
+        alt: 'Jika laju vaksinasi masih lamban, terutama untuk kelompok rentan, munculnya virus musiman, dan berkurangnya kekebalan dari infeksi dan vaksin, lonjakan kasus dapat kembali terjadi.',
         src: 'https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431.png',
         photographerName: 'Kompas',
         sizes: {
@@ -192,41 +192,21 @@ export default Vue.extend({
             <ksm-single-url :item="url" fontSize="large" />
           </section>
 
-
-
-
-
-          <section>
-
-
-
-
-
-            <ksm-single-paragraph font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
+          <section name="ksm-single-caption">
             <ksm-single-caption
               font-size="medium"
-              align="alignright"
-              :height="685"
-              :width="1024"
-              src="https://d2huqozv2aqnkj.cloudfront.net/wp-content/uploads//2021/09/89a1c529-103d-45f3-985d-0935e0028aac_jpg-1024x685.jpg"
-              credit="Lorem ipsum"
-              caption="Lorem ipsum dolor sit, amet consectetur adipisicing elit."
-            >
-            </ksm-single-caption>
-            <ksm-single-paragraph font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
-            <ksm-single-paragraph font-size="medium">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>
-            <ksm-single-caption
-              font-size="medium"
-              :height="685"
-              :width="1024"
-              src="https://d2huqozv2aqnkj.cloudfront.net/wp-content/uploads//2021/09/89a1c529-103d-45f3-985d-0935e0028aac_jpg-1024x685.jpg"
-              credit="Lorem ipsum"
-              caption="Lorem ipsum dolor sit, amet consectetur adipisicing elit."
-            >
-            </ksm-single-caption>
+              :item="image"
+            />
+          </section>
+
+          <section name="ksm-single-text">
+            <ksm-single-text :item="text" />
+            <ksm-single-text font-size="medium" :item="text" />
+            <ksm-single-text font-size="large" :item="text" />
+          </section>
+
+          <section name="ksm-single-raw">
             <ksm-single-raw>?ref_src=twsrc%5Etfw/1248657931433693184/</ksm-single-raw>
-
-
           </section>
         </article>
       </div>
