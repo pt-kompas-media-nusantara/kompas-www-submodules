@@ -6,7 +6,7 @@ import Component from 'vue-class-component'
 export default class KsmSingleRaw extends Vue {
   render(h: CreateElement) {
     return h(
-      'h1',
+      'p',
       {
         class: this.$style.core
       },
