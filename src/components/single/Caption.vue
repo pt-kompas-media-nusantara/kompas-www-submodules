@@ -1,12 +1,16 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue'
+import Vue, { CreateElement } from 'vue'
+import Component from 'vue-class-component'
 
-interface ComponentClasses extends Array<string> {
-  [index: number]: string
-}
-
-export default /*#__PURE__*/Vue.extend({
+const componentProps = Vue.extend({
   props: {
+    align: {
+      type: String,
+      default: 'alignnone',
+      validator: value => {
+        return ['aligncenter', 'alignnone', 'alignleft', 'alignright'].includes(value)
+      }
+    },
     fontSize: {
       type: String,
       default: 'base',
@@ -14,51 +18,95 @@ export default /*#__PURE__*/Vue.extend({
         return ['base', 'medium', 'large'].includes(size)
       }
     },
-    align: {
-      type: String,
-      default: 'alignnone',
-      validator: value => {
-        return ['alignnone', 'alignleft', 'alignright'].includes(value)
-      }
-    },
-    caption: {
-      type: String,
-      default: ''
-    },
-    credit: {
-      type: String,
-      default: ''
-    },
-    height: {
-      type: Number,
-      default: 480
-    },
-    width: {
-      type: Number,
-      default: 480
-    },
-    src: {
-      type: String,
-      default: ''
+    item: {
+      type: Object,
+      required: true
     }
-  },
-  computed: {
-    classes (): ComponentClasses {
-      let res: ComponentClasses = [
-        this.$style.core
-      ]
-      res.push(this.$style[this.fontSize])
-      res.push(this.$style[this.align])
-      return res
-    },
-    classesCredit (): string {
-      return this.$style.classesCredit
-    },
-    classesFigcaption (): string {
-      return this.$style.classesFigcaption
+  }
+})
+
+@Component
+export default class KsmSingleCaption extends componentProps {
+  get alt ():string|undefined {
+    const {
+      alt = undefined
+    } = this.item?.metaBody
+    return alt
+  }
+
+  get attrs ():object {
+    return {
+      alt: this.alt || this.src,
+      height: this.height,
+      loading: 'lazy',
+      sizes: this.sizes,
+      src: this.src,
+      srcset: this.srcset,
+      width: this.width
     }
-  },
-  render (h): VNode {
+  }
+
+  get classes (): Array<string> {
+    const res = [this.$style.core]
+    res.push(this.$style[this.fontSize])
+    res.push(this.$style[this.item.align])
+    return res
+  }
+
+  get classesCredit (): string {
+    const res = this.$style.classesCredit
+    return res
+  }
+
+  get classesFigcaption (): string {
+    const res = this.$style.classesFigcaption
+    return res
+  }
+
+  get credit ():string|undefined {
+    const {
+      credit = undefined
+    } = this.item?.metaBody
+    return credit
+  }
+
+  get height (): number {
+    const {
+      height = 0
+    } = this.item?.metaBody?.sizes?.mediumLarge
+    return height
+  }
+
+  get sizes ():string|undefined {
+    const { sizes = undefined } = this.item.metaBody
+    const items = Object.values(sizes)
+
+    return items.map((ob:any) => `(max-width:${ob.width}px) ${ob.width}px`).join(', ')
+  }
+
+  get src (): string|undefined {
+    const {
+      permalink = undefined
+    } = this.item?.metaBody?.sizes?.mediumLarge
+    return permalink
+  }
+
+  get srcset (): string|undefined {
+    const { sizes = undefined } = this.item.metaBody
+    if (!sizes) { return }
+    const items = Object.values(sizes)
+
+    return items.map((ob:any) => `${ob.permalink} ${ob.width}w`).join(', ')
+  }
+
+  get width (): number {
+    const {
+      width = 0
+    } = this.item?.metaBody?.sizes?.mediumLarge
+    return width
+  }
+
+  render (h:CreateElement) {
     return h(
       'figure',
       {
@@ -68,11 +116,7 @@ export default /*#__PURE__*/Vue.extend({
         h(
           'img',
           {
-            attrs: {
-              height: this.height,
-              width: this.width,
-              src: this.src
-            }
+            attrs: this.attrs,
           },
           this.$slots.default
         ),
@@ -91,14 +135,14 @@ export default /*#__PURE__*/Vue.extend({
             ),
             h(
               'p',
-              this.caption
+              this.alt
             )
           ]
         )
       ]
     )
   }
-})
+}
 </script>
 <style module lang="postcss" scoped>
   .core {
@@ -114,7 +158,7 @@ export default /*#__PURE__*/Vue.extend({
   }
 
   .aligncenter {
-    @apply max-w-lg mx-auto;
+    @apply w-full mx-auto;
   }
 
   .alignnone {
@@ -140,5 +184,4 @@ export default /*#__PURE__*/Vue.extend({
   .large {
     @apply text-lg;
   }
-
 </style>
