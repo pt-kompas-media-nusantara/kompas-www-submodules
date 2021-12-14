@@ -49,15 +49,19 @@ export default class KsmSingleBlockquote extends componentProps {
 }
 </script>
 <style module lang="postcss">
-  .core {
-    @apply bg-no-repeat font-system italic mb-8 mx-auto pt-12 px-4 lg:px-0 text-center text-grey-600 max-w-md;
-    background-image: url('https://www.kompas.id/img/icons/quotes.png');
-    background-position: top center;
-    background-size: 3rem;
+  .base p {
+    @apply leading-normal text-2xl;
   }
 
-  .base p {
-    @apply text-2xl leading-normal;
+  .core {
+    @apply bg-no-repeat font-serif mb-8 mx-auto px-4 lg:px-0 text-center text-grey-600 max-w-sm;
+  }
+
+  .core::before {
+    @apply bg-yellow-400 block mb-3 mx-auto;
+    content: "";
+    height: 8px;
+    width: 100px;
   }
 
   .medium p {
