@@ -65,7 +65,7 @@ export default class KsmSingleOl extends componentProps {
   }
 
   .child::before {
-    @apply mr-4;
+    @apply mr-3;
     counter-increment: inst;
     content: counter(inst)".";
   }

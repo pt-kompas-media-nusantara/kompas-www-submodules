@@ -64,7 +64,7 @@ export default class KsmSingleUl extends componentProps {
   }
 
   .child::before {
-    @apply mr-4;
+    @apply mr-3;
     content: "\203A";
   }
 
