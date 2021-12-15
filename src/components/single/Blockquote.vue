@@ -54,7 +54,7 @@ export default class KsmSingleBlockquote extends componentProps {
   }
 
   .core {
-    @apply bg-no-repeat font-serif mb-8 mx-auto px-4 lg:px-0 text-center text-grey-600 max-w-sm;
+    @apply bg-no-repeat font-serif my-10 mx-auto px-4 lg:px-0 text-center text-grey-600 max-w-sm;
   }
 
   .core::before {
