@@ -46,6 +46,13 @@ export default class KsmSingleCaption extends componentProps {
     }
   }
 
+  get caption ():string|undefined {
+    const {
+      caption = undefined
+    } = this.item?.metaBody
+    return caption
+  }
+
   get classes (): Array<string> {
     const res = [this.$style.core]
     res.push(this.$style[this.fontSize])
@@ -53,8 +60,8 @@ export default class KsmSingleCaption extends componentProps {
     return res
   }
 
-  get classesCredit (): string {
-    const res = this.$style.classesCredit
+  get classesPhotographerName (): string {
+    const res = this.$style.classesPhotographerName
     return res
   }
 
@@ -63,11 +70,11 @@ export default class KsmSingleCaption extends componentProps {
     return res
   }
 
-  get credit ():string|undefined {
+  get photographerName ():string|undefined {
     const {
-      credit = undefined
+      photographerName = undefined
     } = this.item?.metaBody
-    return credit
+    return photographerName
   }
 
   get height (): number {
@@ -129,13 +136,13 @@ export default class KsmSingleCaption extends componentProps {
             h(
               'span',
               {
-                class: this.classesCredit
+                class: this.classesPhotographerName
               },
-              this.credit
+              this.photographerName
             ),
             h(
               'p',
-              this.alt
+              this.caption
             )
           ]
         )
@@ -146,15 +153,15 @@ export default class KsmSingleCaption extends componentProps {
 </script>
 <style module lang="postcss" scoped>
   .core {
-    @apply block my-1 font-system mx-auto max-w-xl text-grey-500;
+    @apply block my-1 font-system mx-auto max-w-xl px-4 text-grey-500;
   }
 
-  .classesCredit {
+  .classesPhotographerName {
     @apply block font-sans my-1 text-right text-xs uppercase;
   }
 
   .classesFigcaption {
-    @apply flex flex-col px-4 text-grey-500 w-full lg:px-0;
+    @apply flex flex-col text-grey-500 w-full;
   }
 
   .aligncenter {
