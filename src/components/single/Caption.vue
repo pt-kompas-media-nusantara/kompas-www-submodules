@@ -153,11 +153,11 @@ export default class KsmSingleCaption extends componentProps {
 </script>
 <style module lang="postcss" scoped>
   .core {
-    @apply block my-1 font-system mx-auto max-w-xl px-4 text-grey-500;
+    @apply block my-6 font-sans mx-auto max-w-xl px-4 text-grey-500;
   }
 
   .classesPhotographerName {
-    @apply block font-sans my-1 text-right text-xs uppercase;
+    @apply block my-1 text-right text-xs uppercase;
   }
 
   .classesFigcaption {
