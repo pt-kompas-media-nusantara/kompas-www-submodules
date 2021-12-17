@@ -50,7 +50,7 @@ export default class KsmSingleUrl extends componentProps {
   }
 
   .core a {
-    @apply text-blue-royal-700 hover:text-blue-royal-500 underline;
+    @apply text-blue-600 hover:text-blue-400 underline;
   }
 
   .base {
