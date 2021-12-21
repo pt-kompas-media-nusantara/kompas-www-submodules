@@ -50,11 +50,11 @@ export default class KsmSingleBlockquote extends componentProps {
 </script>
 <style module lang="postcss">
   .base p {
-    @apply leading-normal text-2xl;
+    @apply font-serif leading-normal text-2xl;
   }
 
   .core {
-    @apply bg-no-repeat font-serif my-10 mx-auto px-4 lg:px-0 text-center text-grey-600 max-w-sm;
+    @apply font-serif my-10 mx-auto px-4 lg:px-0 text-center text-grey-600 max-w-sm;
   }
 
   .core::before {
@@ -65,12 +65,14 @@ export default class KsmSingleBlockquote extends componentProps {
   }
 
   .medium p {
-    font-size: 1.625rem;
+    @apply font-serif;
+    font-size: 1.625rem; /* 26px; */
     line-height: 2.375rem; /* 38px; */
   }
 
   .large p {
-    font-size: 1.750rem;
+    @apply font-serif;
+    font-size: 1.750rem; /* 28px; */
     line-height: 2.5rem; /* 40px; */
   }
 
