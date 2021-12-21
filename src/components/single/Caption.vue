@@ -60,6 +60,11 @@ export default class KsmSingleCaption extends componentProps {
     return res
   }
 
+  get classesCaption (): string {
+    const res = this.$style.classesCaption
+    return res
+  }
+
   get classesPhotographerName (): string {
     const res = this.$style.classesPhotographerName
     return res
@@ -74,7 +79,7 @@ export default class KsmSingleCaption extends componentProps {
     const {
       photographerName = undefined
     } = this.item?.metaBody
-    return photographerName
+    return photographerName || 'Kompas'
   }
 
   get height (): number {
@@ -130,18 +135,21 @@ export default class KsmSingleCaption extends componentProps {
         h(
           'figcaption',
           {
-            class: this.classesFigcaption
+            class: this.$style.classesFigcaption
           },
           [
             h(
               'span',
               {
-                class: this.classesPhotographerName
+                class: this.$style.classesPhotographerName
               },
               this.photographerName
             ),
             h(
               'p',
+              {
+                class: this.$style.classesCaption
+              },
               this.caption
             )
           ]
@@ -156,8 +164,12 @@ export default class KsmSingleCaption extends componentProps {
     @apply block my-6 font-sans mx-auto max-w-xl px-4 text-grey-500;
   }
 
+  .classesCaption {
+    @apply flex flex-col font-sans text-grey-500 w-full;
+  }
+
   .classesPhotographerName {
-    @apply block my-1 text-right text-xs uppercase;
+    @apply block font-sans my-1 text-right text-xs uppercase;
   }
 
   .classesFigcaption {
@@ -180,15 +192,15 @@ export default class KsmSingleCaption extends componentProps {
     @apply float-right max-w-lg ml-0 mx-auto md:ml-4 md:w-1/2;
   }
 
-  .base {
-    @apply text-sm;
+  .base p {
+    @apply font-sans text-sm;
   }
 
-  .medium {
-    @apply text-base;
+  .medium p {
+    @apply font-sans text-base;
   }
 
-  .large {
-    @apply text-lg;
+  .large p {
+    @apply font-sans text-lg;
   }
 </style>
