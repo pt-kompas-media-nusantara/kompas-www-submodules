@@ -1,6 +1,6 @@
 {
   "name": "@kompas/submodules",
-  "version": "0.1.0-alpha-9",
+  "version": "0.1.0-alpha-10",
   "description": "Komponen-komponen pakai-ulang lintas www & preview",
   "main": "dist/kompas-www-submodules.ssr.js",
   "browser": "dist/kompas-www-submodules.esm.js",

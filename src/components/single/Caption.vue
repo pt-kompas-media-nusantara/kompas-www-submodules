@@ -148,9 +148,11 @@ export default class KsmSingleCaption extends componentProps {
             h(
               'p',
               {
-                class: this.$style.classesCaption
-              },
-              this.caption
+                domProps: {
+                  class: this.$style.classesCaption,
+                  innerHTML: this.caption
+                }
+              }
             )
           ]
         )
@@ -161,15 +163,15 @@ export default class KsmSingleCaption extends componentProps {
 </script>
 <style module lang="postcss" scoped>
   .core {
-    @apply block my-6 font-sans mx-auto max-w-xl px-4 text-grey-500;
+    @apply block mb-6 mt-2 font-sans mx-auto max-w-xl px-4 text-grey-500;
   }
 
   .classesCaption {
-    @apply flex flex-col font-sans text-grey-500 w-full;
+    @apply flex flex-col font-sans px-0 text-grey-500 w-full;
   }
 
   .classesPhotographerName {
-    @apply block font-sans my-1 text-right text-xs uppercase;
+    @apply block font-sans my-1 px-0 text-right text-xs uppercase;
   }
 
   .classesFigcaption {
