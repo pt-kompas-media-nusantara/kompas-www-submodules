@@ -55,7 +55,7 @@ export default class KsmSingleUl extends componentProps {
 </script>
 <style module lang="postcss">
   .parent {
-    @apply font-system leading-loose mx-auto pb-8 px-4 lg:px-0 text-grey-600 w-full max-w-md;
+    @apply font-serif leading-loose mx-auto pb-8 px-4 lg:px-0 text-grey-600 w-full max-w-md;
 		list-style: none;
   }
 
