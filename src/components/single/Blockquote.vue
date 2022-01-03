@@ -40,8 +40,11 @@ export default class KsmSingleBlockquote extends componentProps {
       [
         h(
           'p',
-          {},
-          this.text
+          {
+            domProps: {
+              innerHTML: this.text
+            }
+          }
         )
       ]
     )
