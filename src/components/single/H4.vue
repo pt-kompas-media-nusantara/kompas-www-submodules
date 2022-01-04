@@ -3,7 +3,7 @@ import Vue, { CreateElement } from 'vue'
 import Component from 'vue-class-component'
 
 @Component
-export default class KsmSingleH2 extends Vue {
+export default class KsmSingleH4 extends Vue {
   render (h: CreateElement) {
     return h(
       'h4',

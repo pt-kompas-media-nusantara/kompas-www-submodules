@@ -3,7 +3,7 @@ import Vue, { CreateElement } from 'vue'
 import Component from 'vue-class-component'
 
 @Component
-export default class KsmSingleH2 extends Vue {
+export default class KsmSingleH3 extends Vue {
   render (h: CreateElement) {
     return h(
       'h3',
@@ -17,8 +17,8 @@ export default class KsmSingleH2 extends Vue {
 </script>
 <style module lang="postcss" scoped>
   .core {
-    @apply font-serif font-bold mx-auto px-4 lg:px-0 md:text-3xl text-grey-600 w-full max-w-md;
     font-size: 1.375rem; /* 22px; */
     line-height: 2rem;
+    @apply font-serif font-bold mx-auto px-4 lg:px-0 md:text-3xl text-grey-600 w-full max-w-md;
   }
 </style>
