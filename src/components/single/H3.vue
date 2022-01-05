@@ -2,13 +2,31 @@
 import Vue, { CreateElement } from 'vue'
 import Component from 'vue-class-component'
 
+const componentProps = Vue.extend({
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  }
+})
+
 @Component
-export default class KsmSingleH3 extends Vue {
-  render (h: CreateElement) {
+export default class KsmSingleH3 extends componentProps {
+
+  get text ():string|null {
+    const { body = null } = this.item
+    return body
+  }
+
+  render(h: CreateElement) {
     return h(
       'h3',
       {
-        class: this.$style.core
+        class: this.$style.core,
+        domProps: {
+          innerHTML: this.text
+        }
       },
       this.$slots.default
     )
