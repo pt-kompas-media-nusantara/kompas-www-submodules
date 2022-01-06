@@ -20,6 +20,15 @@ export default Vue.extend({
         text: 'Jika laju vaksinasi masih lamban, terutama untuk kelompok rentan, munculnya virus musiman, dan berkurangnya kekebalan dari infeksi dan vaksin, lonjakan kasus dapat kembali terjadi.'
       }
     },
+    heading: {
+      body: 'create <b><i><u>tambah</u></i></b> <b>caption</b> <i>dari</i> <u>body</u> <strike>untuk heading</strike>',
+      align: 'alignnone',
+      length: 180,
+      metaBody: {
+        alt: '',
+        text: 'create <b><i><u>tambah</u></i></b> <b>caption</b> <i>dari</i> <u>body</u> <strike> untuk heading</strike>'
+      }
+    },
     image: {
       body: '<img alt="" class="alignright size-medium wp-image-11712673" height="973" src="https://kompas.id/wp-content/uploads/2021/09/20210901-NSW-Pidana-Korupsi-mumed_1630578431-720x973.png" width="720"/>',
       align: 'alignright',
@@ -152,12 +161,12 @@ export default Vue.extend({
           </section>
 
           <section name="ksm-single-headings">
-            <ksm-single-h1>Lorem ipsum dolor sit, amet consect.</ksm-single-h1>
-            <ksm-single-h2>Lorem ipsum dolor sit, amet consect.</ksm-single-h2>
-            <ksm-single-h3>Lorem ipsum dolor sit, amet consect.</ksm-single-h3>
-            <ksm-single-h4>Lorem ipsum dolor sit, amet consect.</ksm-single-h4>
-            <ksm-single-h5>Lorem ipsum dolor sit, amet consect.</ksm-single-h5>
-            <ksm-single-h6>Lorem ipsum dolor sit, amet consect.</ksm-single-h6>
+            <ksm-single-h1 :item="heading"/>
+            <ksm-single-h2 :item="heading"/>
+            <ksm-single-h3 :item="heading"/>
+            <ksm-single-h4 :item="heading"/>
+            <ksm-single-h5 :item="heading"/>
+            <ksm-single-h6 :item="heading"/>
           </section>
 
           <section name="ksm-single-image">
