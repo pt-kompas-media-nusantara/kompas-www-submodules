@@ -17,7 +17,7 @@ export default class KsmSingleTitle extends Vue {
 </script>
 <style module lang="postcss">
   .core {
-    @apply font-sans leading-loose mx-auto text-center w-full max-w-md;
+    @apply font-sans leading-normal mx-auto text-center text-lg w-full max-w-md;
   }
 
 </style>
