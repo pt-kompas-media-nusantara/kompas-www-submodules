@@ -35,6 +35,6 @@ export default class KsmSingleH1 extends componentProps {
 </script>
 <style module lang="postcss" scoped>
   .core {
-    @apply font-serif font-bold mx-auto px-4 lg:px-0 text-3xl md:text-5xl text-grey-600 w-full max-w-md;
+    @apply font-serif font-bold leading-tight mx-auto px-4 lg:px-0 text-3xl md:text-5xl text-grey-600 w-full max-w-md;
   }
 </style>

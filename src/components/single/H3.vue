@@ -37,6 +37,6 @@ export default class KsmSingleH3 extends componentProps {
   .core {
     font-size: 1.375rem; /* 22px; */
     line-height: 2rem;
-    @apply font-serif font-bold mx-auto px-4 lg:px-0 md:text-3xl text-grey-600 w-full max-w-md;
+    @apply font-serif font-bold leading-tight mx-auto px-4 lg:px-0 md:text-3xl text-grey-600 w-full max-w-md;
   }
 </style>
