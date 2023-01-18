@@ -57,15 +57,19 @@ export default class KsmSingleUl extends componentProps {
   .parent {
     @apply font-serif leading-loose mx-auto pb-8 px-4 lg:px-0 text-grey-600 w-full max-w-md;
 		list-style: none;
+    display: table;
   }
 
   .child {
     list-style: none;
+    display: table-row;
   }
 
   .child::before {
     @apply mr-3;
     content: "\203A";
+    display: table-cell;
+    padding-right: 0.75rem;
   }
 
   .base {
