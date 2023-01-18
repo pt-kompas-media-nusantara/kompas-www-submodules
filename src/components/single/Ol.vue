@@ -58,16 +58,20 @@ export default class KsmSingleOl extends componentProps {
     @apply font-serif leading-loose px-4 lg:px-0 text-grey-600 text-lg w-full max-w-md mx-auto pb-8;
     counter-reset: inst;
 		list-style: none;
+    display: table;
   }
 
   .child {
     list-style: none;
+    display: table-row;
   }
 
   .child::before {
     @apply mr-3;
     counter-increment: inst;
     content: counter(inst)".";
+    display: table-cell;
+    padding-right: 0.75rem;
   }
 
   .base {
