@@ -81,14 +81,14 @@ export default Vue.extend({
       }
     },
     ol: {
-      body: '<li>asjdajdaksdasd</li> <li>jaskdjaksda</li> <li>ddasjdajsdas</li> <li>dasjdasjdasd</li>',
+      body: '<li>asjdajdaksdasd</li> <li>Solo Exhibition: Style &amp; Substance Porcelain Furniture &amp; Interior, Jakarta (2017)</li> <li>ddasjdajsdas</li> <li>dasjdasjdasd</li>',
       align: 'alignnone',
       length: 89,
       type: 'ol',
       metaBody: {
         list: [
           'asjdajdaksdasd',
-          'jaskdjaksda',
+          'Solo Exhibition: Style &amp; Substance Porcelain Furniture &amp; Interior, Jakarta (2017)',
           'ddasjdajsdas',
           'dasjdasjdasd'
         ]
