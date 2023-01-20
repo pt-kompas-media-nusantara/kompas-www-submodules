@@ -7,7 +7,7 @@ const componentProps = Vue.extend({
     align: {
       type: String,
       default: 'alignnone',
-      validator: value => {
+      validator (value: string) {
         return ['aligncenter', 'alignnone', 'alignleft', 'alignright'].includes(value)
       }
     },
