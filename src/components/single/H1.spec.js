@@ -1,4 +1,5 @@
-import  KsmSingleH1  from 'src/components/single/H1.vue'
+import  KsmSingleH1  from '@/components/single/H1.vue'
+import { shallowMount } from '@vue/test-utils'
 
 describe('KsmSingleH1 Rendered', () => {
   const wrapper = shallowMount(KsmSingleH1, {
