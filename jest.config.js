@@ -1,4 +1,7 @@
 module.exports = {
+  collectCoverage: true,
+  // collectCoverageFrom: ['<rootDir>/src/components/single/*.vue'],
+  coverageReporters: ['text'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/$1',
@@ -7,15 +10,14 @@ module.exports = {
   moduleFileExtensions: [
     'js',
     'vue',
-    'json'
+    'json',
+    'ts'
   ],
 	transform: {
     '\\.[jt]sx?$': 'babel-jest',
-    '^.+\\.ts$': 'ts-jest'
-    // '^.+\\.vue$': '@vue/vue3-jest'
-    // '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-    //   '<rootDir>/fileTransformer.js'
+    '^.+\\.ts$': 'ts-jest',
+    ".*\\.(vue)$": "vue-jest"
   },
-  transformIgnorePatterns: ["/node_modules/(?!(bootstrap-vue)/)"],
+  testEnvironment: 'jsdom',
   verbose: true
 }

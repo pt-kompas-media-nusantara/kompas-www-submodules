@@ -2,24 +2,26 @@
   "name": "@kompasid/submodules",
   "version": "v1.0.1",
   "description": "Komponen-komponen pakai-ulang lintas www & preview",
+  "scripts": {
+    "serve": "vue-cli-service serve dev/serve.ts",
+    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
+    "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
+    "test": "jest"
+  },
   "main": "dist/kompas-www-submodules.ssr.js",
-  "browser": "dist/kompas-www-submodules.esm.js",
   "module": "dist/kompas-www-submodules.esm.js",
+  "browser": "dist/kompas-www-submodules.esm.js",
   "unpkg": "dist/kompas-www-submodules.min.js",
-  "types": "kompas-www-submodules.d.ts",
   "files": [
     "dist/*",
     "kompas-www-submodules.d.ts",
     "src/**/*.vue"
   ],
-  "sideEffects": false,
-  "scripts": {
-    "serve": "vue-cli-service serve dev/serve.ts",
-    "test": "jest",
-    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
-    "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
-    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
+  "dependencies": {
+    "@types/node": "^18.13.0",
+    "jsdom": "^21.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -36,10 +38,15 @@
     "@types/jest": "^29.4.0",
     "@vue/cli-plugin-babel": "^4.5.10",
     "@vue/cli-plugin-typescript": "^4.5.10",
+    "@vue/cli-plugin-unit-jest": "^5.0.8",
     "@vue/cli-service": "^4.5.10",
+    "@vue/test-utils": "^1.3.4",
+    "@vue/vue2-jest": "^27.0.0-alpha.2",
     "autoprefixer": "^9.8.6",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^29.4.2",
     "cross-env": "^7.0.3",
+    "jest": "^27.0.5",
     "minimist": "^1.2.5",
     "postcss": "^7.0.36",
     "rollup": "^2.36.1",
@@ -50,6 +57,7 @@
     "typescript": "^4.9.5",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.6",
+    "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.12"
   },
   "peerDependencies": {
@@ -58,7 +66,6 @@
   "engines": {
     "node": ">=12"
   },
-  "dependencies": {
-    "@types/node": "^18.13.0"
-  }
+  "sideEffects": false,
+  "types": "kompas-www-submodules.d.ts"
 }
