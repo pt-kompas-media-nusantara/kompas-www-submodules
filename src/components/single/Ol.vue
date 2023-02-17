@@ -27,7 +27,7 @@ export default class KsmSingleOl extends componentProps {
   }
 
   get items ():Array<string> {
-    const { list } = this.item?.metaBody
+    const { list } = this.item.metaBody
     return list
   }
 
