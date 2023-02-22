@@ -64,6 +64,7 @@ export default class KsmSingleOl extends componentProps {
   .child {
     list-style: none;
     display: table-row;
+    display: flex;
   }
 
   .child::before {
