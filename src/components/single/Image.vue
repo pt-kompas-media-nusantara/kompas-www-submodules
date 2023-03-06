@@ -1,6 +1,7 @@
 <script lang="ts">
 import Vue, { CreateElement } from 'vue'
 import Component from 'vue-class-component'
+import { StyleValue } from 'vue/types/jsx'
 
 const componentProps = Vue.extend({
   props: {
@@ -16,7 +17,7 @@ export default class KsmSingleImage extends componentProps {
   get alt ():string|undefined {
     const {
       alt = undefined
-    } = this.item?.metaBody
+    } = this.item.metaBody
     return alt
   }
 
@@ -35,7 +36,7 @@ export default class KsmSingleImage extends componentProps {
   get height (): number {
     const {
       height = 0
-    } = this.item?.metaBody?.sizes?.mediumLarge
+    } = this.item.metaBody.sizes.mediumLarge
     return height
   }
 
@@ -49,7 +50,7 @@ export default class KsmSingleImage extends componentProps {
   get src(): string|undefined {
     const {
       permalink = undefined
-    } = this.item?.metaBody?.sizes?.mediumLarge
+    } = this.item.metaBody.sizes.mediumLarge
     return permalink
   }
 
@@ -61,7 +62,7 @@ export default class KsmSingleImage extends componentProps {
     return items.map((ob:any) => `${ob.permalink} ${ob.width}w`).join(', ')
   }
 
-  get styles (): object {
+  get styles (): StyleValue {
     const maxWidth = this.width > 800 ? 800 : this.width
     return {
       maxWidth: `${maxWidth}px`
@@ -71,7 +72,7 @@ export default class KsmSingleImage extends componentProps {
   get width (): number {
     const {
       width = 0
-    } = this.item?.metaBody?.sizes?.mediumLarge
+    } = this.item.metaBody.sizes.mediumLarge
     return width
   }
 
@@ -89,7 +90,7 @@ export default class KsmSingleImage extends componentProps {
           this.$style.core,
           this.$style.mxauto
         ],
-        style: this.styles
+        style: this.styles as StyleValue
       }
     )
   }

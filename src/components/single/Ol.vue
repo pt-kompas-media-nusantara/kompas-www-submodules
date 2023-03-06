@@ -27,7 +27,7 @@ export default class KsmSingleOl extends componentProps {
   }
 
   get items ():Array<string> {
-    const { list } = this.item?.metaBody
+    const { list } = this.item.metaBody
     return list
   }
 
@@ -64,6 +64,7 @@ export default class KsmSingleOl extends componentProps {
   .child {
     list-style: none;
     display: table-row;
+    display: flex;
   }
 
   .child::before {
