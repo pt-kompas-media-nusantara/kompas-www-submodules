@@ -1,5 +1,6 @@
 <script lang="ts">
 import Vue, { CreateElement } from 'vue'
+import { StyleValue } from 'vue/types/jsx'
 import Component from 'vue-class-component'
 
 const componentProps = Vue.extend({
@@ -89,7 +90,7 @@ export default class KsmSingleImage extends componentProps {
           this.$style.core,
           this.$style.mxauto
         ],
-        style: this.styles
+        style: this.styles as StyleValue
       }
     )
   }
