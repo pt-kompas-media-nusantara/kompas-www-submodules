@@ -1,6 +1,6 @@
 {
   "name": "@kompasid/submodules",
-  "version": "v1.0.1",
+  "version": "v1.0.6",
   "description": "Komponen-komponen pakai-ulang lintas www & preview",
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.ts",

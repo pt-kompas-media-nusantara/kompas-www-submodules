@@ -30,7 +30,7 @@ export default class KsmSingleCaption extends componentProps {
   get alt ():string|undefined {
     const {
       alt = undefined
-    } = this.item?.metaBody
+    } = this.item.metaBody
     return alt
   }
 
@@ -49,7 +49,7 @@ export default class KsmSingleCaption extends componentProps {
   get caption ():string|undefined {
     const {
       caption = undefined
-    } = this.item?.metaBody
+    } = this.item.metaBody
     return caption
   }
 
@@ -78,14 +78,14 @@ export default class KsmSingleCaption extends componentProps {
   get photographerName ():string|undefined {
     const {
       photographerName = undefined
-    } = this.item?.metaBody
+    } = this.item.metaBody
     return photographerName || 'Kompas'
   }
 
   get height (): number {
     const {
       height = 0
-    } = this.item?.metaBody?.sizes?.mediumLarge
+    } = this.item.metaBody.sizes.mediumLarge
     return height
   }
 
@@ -99,7 +99,7 @@ export default class KsmSingleCaption extends componentProps {
   get src (): string|undefined {
     const {
       permalink = undefined
-    } = this.item?.metaBody?.sizes?.mediumLarge
+    } = this.item.metaBody.sizes.mediumLarge
     return permalink
   }
 
@@ -114,7 +114,7 @@ export default class KsmSingleCaption extends componentProps {
   get width (): number {
     const {
       width = 0
-    } = this.item?.metaBody?.sizes?.mediumLarge
+    } = this.item.metaBody.sizes.mediumLarge
     return width
   }
 
