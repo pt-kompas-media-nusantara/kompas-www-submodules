@@ -1,6 +1,5 @@
 <script lang="ts">
 import Vue, { CreateElement } from 'vue'
-import { StyleValue } from 'vue/types/jsx'
 import Component from 'vue-class-component'
 import { StyleValue } from 'vue/types/jsx'
 
