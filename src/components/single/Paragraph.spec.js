@@ -1,21 +1,19 @@
 import  KsmSingleParagraph  from '@/components/single/Paragraph.vue'
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 
 const sampleData = [
 	"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur ipsa nesciunt quae harum necessitatibus. Fugiat ea aliquam adipisci inventore? Reprehenderit animi quidem veniam accusantium obcaecati facere necessitatibus amet molestiae dolor."
 ]
-
+  
 describe('KsmSingleParagraph Rendered', () => {
-  const wrapper = shallowMount(
-		KsmSingleParagraph,
+  const wrapper = mount(
     {
-			name: 'Core',
-      template: '<p class="ksm-7oU ksm-20w">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</p>'
+			components: { KsmSingleParagraph },
+      template: '<ksm-single-paragraph>Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</ksm-single-paragraph>'
     }
 	)
 
-  it('Paragraph rendered', () => {
-		const coreByCss = wrapper.findComponent('.core') // => finds Root
-		expect(coreByCss.vm.$options.name).toBe('Core')
-	})
+	it('Paragraph rendered', () => {
+    expect(wrapper.html()).toBe('<p class=\"core base\">Lorem &amp; ipsum dolor sit, <a href="https://www.kompas.id">amet consectetur adipisicing elit</a>. Expedita quasi impedit, earum rerum quia sequi commodi qui! Quae eos temporibus expedita aliquam iure aperiam debitis hic adipisci obcaecati, accusantium repudiandae.</p>')
+  })
 })
