@@ -1,7 +1,7 @@
 module.exports = {
   collectCoverage: true,
   // collectCoverageFrom: ['<rootDir>/src/components/single/*.vue'],
-  coverageReporters: ['text'],
+  coverageReporters: ['lcov', 'text'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/$1',
