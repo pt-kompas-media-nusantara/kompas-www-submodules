@@ -17,7 +17,7 @@ describe('KsmSingleH1 Rendered', () => {
     }
   })
 
-  it('gtm home sc masthead rendered', () => {
+  it('heading 1 rendered', () => {
     expect(wrapper.html()).toBe('<h1 class="core">create <b><i><u>tambah</u></i></b> <b>caption</b> <i>dari</i> <u>body</u> <strike>untuk heading</strike></h1>')
   })
 })
