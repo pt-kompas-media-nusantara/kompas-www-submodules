@@ -69,14 +69,14 @@ export default class KsmSingleBlockquote extends componentProps {
 
   .medium p {
     @apply font-serif;
-    font-size: 1.625rem; /* 26px; */
-    line-height: 2.375rem; /* 38px; */
+    font-size: 1.625rem;
+    line-height: 2.375rem;
   }
 
   .large p {
     @apply font-serif;
-    font-size: 1.750rem; /* 28px; */
-    line-height: 2.5rem; /* 40px; */
+    font-size: 1.750rem;
+    line-height: 2.5rem;
   }
 
 </style>
