@@ -20,7 +20,7 @@ yarn-error.log*
 *.sln
 *.sw?
 
-package-lock.json
+# package-lock.json
 yarn.lock
 packages/
 storybook-static/
