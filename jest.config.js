@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: true,
-  // collectCoverageFrom: ['<rootDir>/src/components/single/*.vue'],
+  collectCoverageFrom: ['<rootDir>/src/components/single/*.vue'],
   coverageReporters: ['lcov', 'text'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
@@ -19,8 +19,5 @@ module.exports = {
     ".*\\.(vue)$": "vue-jest"
   },
   testEnvironment: 'jsdom',
-  verbose: true,
-  collectCoverageFrom: [
-    '<rootDir>/src/components/single/*.vue'
-  ],
+  verbose: true
 }
