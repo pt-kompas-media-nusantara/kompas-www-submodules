@@ -19,5 +19,8 @@ module.exports = {
     ".*\\.(vue)$": "vue-jest"
   },
   testEnvironment: 'jsdom',
-  verbose: true
+  verbose: true,
+  collectCoverageFrom: [
+    '<rootDir>/src/components/single/*.vue'
+  ],
 }
