@@ -26,5 +26,5 @@ storybook-static/
 
 # coverage test
 .nyc_output/
-coverage
+# coverage
 build-storybook.log
