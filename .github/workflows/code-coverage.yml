@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+        with:
+          node-version: 16
+          check-latest: true
 
       - name: Setup node env 🏗
         uses: actions/setup-node@v3
