@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: Install dependencies
-        run: npm ci --omit=optional
+        run: npm ci --force --omit=optional
 
       - name: Generate Test Coverage
         run: npm run test-coverage
