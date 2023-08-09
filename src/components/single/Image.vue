@@ -90,7 +90,7 @@ export default class KsmSingleImage extends componentProps {
           this.$style.core,
           this.$style.mxauto
         ],
-        style: this.styles
+        style: this.styles as StyleValue
       }
     )
   }
