@@ -18,7 +18,7 @@ jobs:
       run: npm ci --force --omit=optional
 
     - name: Generate Test Coverage
-      run: npm run test-coverage
+      run: npm run test
 
     # ... Generate LCOV files or download it from a different job
     - name: Setup LCOV
