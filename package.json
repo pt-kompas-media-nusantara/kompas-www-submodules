@@ -8,7 +8,7 @@
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "main": "dist/kompas-www-submodules.ssr.js",
   "module": "dist/kompas-www-submodules.esm.js",
