@@ -25,7 +25,7 @@ jobs:
       uses: hrishikesh-kadam/setup-lcov@v1
       
     - name: Report code coverage
-      uses: zgosalvez/github-actions-report-lcov@v3
+      uses: zgosalvez/github-actions-report-lcov@v3.1.8
       with:
         coverage-files: ./coverage/lcov.info
         artifact-name: code-coverage-report
