@@ -20,12 +20,11 @@ yarn-error.log*
 *.sln
 *.sw?
 
-package-lock.json
 yarn.lock
 packages/
 storybook-static/
 
 # coverage test
 .nyc_output/
-coverage/
+coverage
 build-storybook.log

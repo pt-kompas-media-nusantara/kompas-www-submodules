@@ -1,6 +1,8 @@
 module.exports = {
+  // preset: '@vue/cli-plugin-unit-jest/presets/typescript-and-babel',
+  // testMatch: ['**/*.spec.(js|ts)'],
   collectCoverage: true,
-  // collectCoverageFrom: ['<rootDir>/src/components/single/*.vue'],
+  collectCoverageFrom: ['<rootDir>/src/components/{!(kompas-www-submodules-sample.vue),}/*.vue'],
   coverageReporters: ['lcov', 'text'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
@@ -14,10 +16,10 @@ module.exports = {
     'ts'
   ],
 	transform: {
-    '\\.[jt]sx?$': 'babel-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
     '^.+\\.ts$': 'ts-jest',
     ".*\\.(vue)$": "vue-jest"
   },
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
   verbose: true
 }
