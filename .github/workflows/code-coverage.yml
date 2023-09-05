@@ -1,0 +1,31 @@
+name: Continuous Integration
+on:
+  pull_request:
+    branches:
+      - development
+jobs:
+  coverage_report:
+    name: Generate coverage report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          node-version: 16
+          check-latest: true
+      - name: Setup node env 🏗
+        uses: actions/setup-node@v3
+
+      - name: Install dependencies
+        run: npm ci --omit=optional
+
+      - name: Generate Test Coverage
+        run: npm run test-coverage
+  
+      - name: Report code coverage
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          lcov-file: ./coverage/lcov.info
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          filter-changed-files: true
+          delete-old-comments: true
